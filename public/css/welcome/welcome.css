@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+body {
+    background-color: #cfcfcf;
+    background-image: url("../../img/welcome/background.svg");
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Roboto', 'Nunito', Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #555555;
+}
+
+.title {
+    font-size: 30px;
+}
