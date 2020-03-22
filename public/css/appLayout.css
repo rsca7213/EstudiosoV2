@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+body {
+    font-family: 'Roboto', 'Nunito', Arial, Helvetica, sans-serif;
+    color: #555555;
+    background-color: #F5F5F5;
+}
+
+.navbarBack {
+    background-color: #F0F0F0;
+}
+
+.navbarItem {
+    color: #888888;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.navbarItemActive {
+    color: #444444;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.navbarItemActive:hover {
+    color: #444444;
+    text-decoration: underline;
+}
+
+.navbarItem:hover {
+    color: #888888;
+    text-decoration: underline;
+}
+
+.dropdownTitle {
+    color: #888888;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.dropdownTitle:hover {
+    color: #444444;
+    text-decoration: none;
+}
+
+.listItem {
+    color: #888888;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+.listItem:hover {
+    color: #444444;
+}
+

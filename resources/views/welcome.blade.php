@@ -16,6 +16,9 @@
         </head>
     </head>
     <body>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
         <div class="container-fluid" id="app">
             <nav class="navbar navbar-expand-md navbar-light">
                 <a href="{{ url('/') }}" class="navbar-brand d-none d-sm-block"> 
@@ -31,6 +34,8 @@
                     <ul class="navbar-nav ml-auto d-none d-sm-block">
                         @auth
                             <li class="nav-item ml-auto">
+                                <a class="btn btn-link text-primary" style="font-size: 16px; font-weight: bold" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"> {{ auth()->user()->name }}, Cerrar Sesión  </a>
                                 <a href="{{ route('home') }}" class="btn btn-primary btn-lg" type="button"> Ir al Menú Principal </a>
                             </li>
                         @else
@@ -44,6 +49,8 @@
                     <ul class="navbar-nav ml-auto d-sm-none d-block">
                         @auth
                             <li class="nav-item ml-auto">
+                                <a class="btn btn-link text-primary" style="font-size: 14px; font-weight: bold" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();"> {{ auth()->user()->name }}, Cerrar Sesión  </a>
                                 <a href="{{ route('home') }}" class="btn btn-primary btn-lg"> Ir al Menú Principal </a>
                             </li>
                         @else
