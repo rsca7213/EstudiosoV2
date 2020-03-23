@@ -10,7 +10,7 @@
     </li>
     <span class="navbarItem d-none d-xl-block"> | </span>
     <li class="mx-2 nav-item">
-        <a href="#" class="navbarItem"> Ver Cursos </a>
+        <a href="{{ route('viewCourses') }}" class="navbarItem"> Ver Cursos </a>
     </li>
     <span class="navbarItem d-none d-xl-block"> | </span>
     <li class="mx-2 nav-item">
@@ -48,8 +48,8 @@
                             </div>
             
                             <div class="form-group row mx-2">
-                                <label for="teacher" class="col-form-label text-md-right" style="font-size: 14px; font-weight: bold">  Nombre del Profesor <span class="text-secondary"> (Opcional) </span> </label>
-                                <input id="teacher" type="text" class="form-control @error('teacher') is-invalid @enderror" name="teacher" value="{{ old('teacher') }}" autocomplete="name">
+                                <label for="teacher" class="col-form-label text-md-right" style="font-size: 14px; font-weight: bold">  Nombre del Profesor </label>
+                                <input id="teacher" type="text" class="form-control @error('teacher') is-invalid @enderror" name="teacher" required value="{{ old('teacher') }}" autocomplete="name">
                                 @error('teacher')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
