@@ -18,7 +18,6 @@ class CreateCoursesTable extends Migration
             $table->bigInteger('user_id');
             $table->string('name');
             $table->string('teacher');
-            $table->string('icon');
             $table->string('color');    
             $table->string('hours')->nullable();
         });

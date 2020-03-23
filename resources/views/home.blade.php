@@ -6,7 +6,7 @@
 
 @section('nav')
     <li class="mx-2 nav-item">
-        <a href="#" class="navbarItemActive"> Menú Principal </a>
+        <a href="{{ route('home') }}" class="navbarItemActive"> Menú Principal </a>
     </li>
     <span class="navbarItem d-none d-lg-block"> | </span>
     <li class="mx-2 nav-item">
@@ -14,7 +14,7 @@
     </li>
     <span class="navbarItem d-none d-lg-block"> | </span>
     <li class="mx-2 nav-item">
-        <a href="#" class="navbarItem"> Agregar Curso </a>
+        <a href="{{ route('addCourse') }}" class="navbarItem"> Agregar Curso </a>
     </li>
     <span class="navbarItem d-none d-lg-block"> | </span>
     <li class="mx-2 nav-item">

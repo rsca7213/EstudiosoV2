@@ -3,7 +3,10 @@
 body {
     font-family: 'Roboto', 'Nunito', Arial, Helvetica, sans-serif;
     color: #555555;
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
+    background-image: url("../img/appBackground.svg");
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .navbarBack {

@@ -52,6 +52,14 @@
         <main class="py-4">
             @yield('content')
         </main>
+        <footer>
+            <div class="d-block d-md-none mt-4">
+                @yield('mobileFooter')
+            </div>
+            <div class="d-none d-md-block mt-4">
+                @yield('desktopFooter')
+            </div>     
+        </footer>
     </div>
 </body>
 </html>
