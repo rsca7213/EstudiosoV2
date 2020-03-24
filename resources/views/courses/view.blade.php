@@ -36,7 +36,9 @@
                     </div>
                     <div class="card-body" style="background-color: whitesmoke">
                         <hr class="bg-light">
+                        <span class="d-none"> {{ $existe = false }} </span>
                         @foreach ($courses as $course)
+                            <span class="d-none"> {{ $existe = true }} </span>
                             <div class="row d-flex justify-content-between">
                                 <div class="col-12 col-lg-6">
                                     <span class="h5" style="color: {{$course->color}}"> &#10687; </span>
@@ -56,6 +58,12 @@
                             </div>
                             <hr class="bg-light">
                         @endforeach
+                        @if(!$existe)
+                            <div class="row d-flex justify-content-center">
+                                <span class="h4 text-center"> ¡Aun no tienes cursos! Puedes agregarlos haciendo click en "Agregar Curso". </span>
+                            </div>
+                            <hr class="bg-light">
+                        @endif
                     </div>
                     <div class="card-footer bg-dark d-flex text-center"> 
                         <div class="col d-none d-lg-block"> <a href="{{ route('addCourse') }}" class="btn btn-secondary float-right"> Agregar Curso </a> </div>
