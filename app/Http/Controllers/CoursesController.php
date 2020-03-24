@@ -31,8 +31,8 @@ class CoursesController extends Controller
     public function store (Request $request) {
         if (Auth::check()) {
             $data = $request->validate([
-                'name' => 'required|string|max:60',
-                'teacher' => 'required|string|max:60',
+                'name' => 'required|string|max:50',
+                'teacher' => 'required|string|max:50',
                 'color' => 'required|string|max:7|min:7'
             ]);
 
@@ -49,5 +49,18 @@ class CoursesController extends Controller
             ]);
             return redirect('/courses/view');
         }
+    }
+
+    public function delete (Request $request) {
+        if(Auth::check()) {
+            $id = $request->id;
+            $course = Course::findOrFail($id);
+            if($course->user_id == auth()->user()->id) {
+                $course->delete();
+                return redirect('/courses/view');
+            }
+            else return view('auth.login');
+        }
+        else return view('auth.login');
     }
 }

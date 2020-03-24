@@ -26,5 +26,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/courses/add', 'CoursesController@create')->name('addCourse');
 Route::post('/courses/add/store', 'CoursesController@store');
 
-//Courses: View
+//Courses: View, Delete
 Route::get('/courses/view', 'CoursesController@index')->name('viewCourses');
+Route::delete('/courses/view/delete', 'CoursesController@delete');

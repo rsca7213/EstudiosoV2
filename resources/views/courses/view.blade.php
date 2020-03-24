@@ -29,29 +29,37 @@
 @section('content')
     <div class="container-fluid">
         <div class="row d-flex justify-content-center">
-            <div class="col-xl-6">
+            <div class="col-12 col-sm-11 col-md-10 col-lg-9 col-xl-7">
                 <div class="card shadow-lg">
                     <div class="card-header bg-dark text-light text-center h4">
                         Mis Cursos
                     </div>
                     <div class="card-body" style="background-color: whitesmoke">
-                        <hr style="background-color: #999999">
+                        <hr class="bg-light">
                         @foreach ($courses as $course)
-                            <div class="row d-flex justify-content-between align-items-baseline">
-                                <div class="col">
+                            <div class="row d-flex justify-content-between">
+                                <div class="col-12 col-lg-6">
+                                    <span class="h5" style="color: {{$course->color}}"> &#10687; </span>
                                     <span class="h5"> <b> {{$course->name }} </b> <br> </span>
-                                    @if($course->profesor) <span class="h6"><b> Profesor: </b> {{$course->teacher }}</span> @endif
+                                    <span> <b> Profesor: </b> {{$course->teacher }}</span>
                                 </div>
-                                <div class="col text-right">
-                                    <a href="" class="btn btn-primary btn-lg mx-1"> Ver Evaluaciones </a>
-                                    <button class="btn btn-danger btn-lg mx-1"> Borrar </button>
+                                <div class="col-12 col-lg-6 text-right">
+                                    <div class="d-none d-md-block">
+                                        <a href="#" class="btn btn-primary btn-lg mx-1"> Ver Evaluaciones </a>
+                                        <delete-course-lg c_id="{{ $course->id }}" c_n="{{ $course->name }}" csrf="{{ csrf_token() }}"> </delete-course-lg>
+                                    </div>
+                                    <div class="d-block d-md-none text-left mt-1">
+                                        <a href="#" class="btn btn-primary mx-1"> Ver Evaluaciones </a>
+                                        <delete-course  c_id="{{ $course->id }}" c_n="{{ $course->name }}" csrf="{{ csrf_token() }}"> </delete-course>
+                                    </div>
                                 </div>
                             </div>
-                            <hr style="background-color: #999999">
+                            <hr class="bg-light">
                         @endforeach
                     </div>
-                    <div class="card-footer bg-dark text-right"> 
-                        <a href="" class="btn btn-secondary"> Agregar Curso </a>
+                    <div class="card-footer bg-dark d-flex text-center"> 
+                        <div class="col d-none d-lg-block"> <a href="{{ route('addCourse') }}" class="btn btn-secondary float-right"> Agregar Curso </a> </div>
+                        <div class="col d-block d-lg-none"> <a href="{{ route('addCourse') }}" class="btn btn-secondary"> Agregar Curso </a> </div>
                     </div>
                 </div>
             </div>
@@ -61,15 +69,10 @@
 
 @section('mobileFooter')
     <div class="row d-flex justify-content-center">
-        <a href="{{ route('home') }}" class="btn btn-secondary"> Regresar al Menú Principal</a>
+        <a href="{{ route('home') }}" class="btn btn-secondary"> Regresar al Menú Principal </a>
     </div>
     <div class="row d-flex justify-content-center mt-4">
         ESTUDIOSO
     </div>
 @endsection
 
-@section('desktopFooter')
-    <div class="d-flex flex-row-reverse fixed-bottom mb-4 mr-4">
-        <div class="flex-row"> <a href="{{ route('login') }}" class="btn btn-secondary"> Regresar al Menú Principal </a></div>
-    </div>
-@endsection
