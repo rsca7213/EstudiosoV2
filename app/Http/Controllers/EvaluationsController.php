@@ -20,7 +20,6 @@ class EvaluationsController extends Controller
                 $evs = $course->evaluations()->where('course_id', $course->id)->get()->sortBy('date');
                 $acum = 0;
                 foreach ($evs as $ev) {
-                    $ev->date = date('d/m/Y', strtotime($ev->date));
                     $acum += $ev->value;
                 }
                 return view('evaluations.edit', [
@@ -48,20 +47,56 @@ class EvaluationsController extends Controller
                 $acum = 0;
                 foreach($evs as $ev) {
                     $acum += $ev->value;
-                    if ($ev->name == $data['name']) return response('Name cannot be the same.', 400);
+                    if ($ev->name == $data['name']) return response('Name cannot be the same', 400);
                 }
                 $acum += $data['value'];
-                if ($acum > 100) return response('Value acumulated exceded 100.', 422);
+                if ($acum > 100) return response('Value acumulated exceded 100', 422);
                 $course->evaluations()->create([
                     'course_id' => $course->id,
                     'date' => $data['date'],
                     'name' => $data['name'],
                     'value' => $data['value']
                 ]);
-                return response('Success.', 200);
+                return response('Success', 200);
             }
-            else return response('Unauthorized.', 401);
+            else return response('Unauthorized', 401);
         }
-        else return response('Unauthorized.', 401);
+        else return response('Unauthorized', 401);
+    }
+
+    public function update (Request $request, $c_id, $ev_id) {
+        if(Auth::check()) {
+            $user = auth()->user();
+            $course = Course::findOrFail($c_id);
+            $evToEdit = Evaluation::findOrFail($ev_id);
+            if($course->user_id == $user->id && $evToEdit->course_id == $course->id) {
+                $data = $request->validate([
+                    'name' => 'required|string|max:50',
+                    'date' => 'required|date',
+                    'value' => 'required|numeric|max:100|min:1'
+                ]);
+                $evs = $course->evaluations()->where('course_id', $course->id)->get();
+                $acum = 0;
+                foreach ($evs as $ev) {
+                    $acum += $ev->value;
+                    if($evToEdit->id != $ev->id && $ev->name == $data['name']) return response('Name cannot be the same', 400);
+                }
+                $acum -= $evToEdit->value;
+                $acum += $data['value'];
+                if ($acum > 100) return response('Value acumulated exceded 100', 422);
+                $evToEdit->update([
+                    'name' => $data['name'],
+                    'date' => $data['date'],
+                    'value' => $data['value']
+                ]);
+                return response('Success', 200);
+            }
+            else return response('Unauthorized', 401);
+        }
+        else return response('Unauthorized', 401);
+    }
+
+    public function delete ($c_id, $ev_id) {
+        return response('Success', 200);
     }
 }

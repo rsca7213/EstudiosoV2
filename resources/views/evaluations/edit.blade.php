@@ -57,10 +57,10 @@
                                             <tr>
                                                 <th scope="row"> {{ $loop->iteration }} </th>
                                                 <td class="text-left"> {{ $ev->name }} </td>
-                                                <td> {{ $ev->date }} </td>
+                                                <td> {{ date('d/m/Y', strtotime($ev->date)) }} </td>
                                                 <td> {{ $ev->value }}% </td>
                                                 <td> 
-                                                    <edit-evaluation image="{{ asset('img/icons/edit.svg') }}" type="desktop"> </edit-evaluation>
+                                                    <edit-evaluation image="{{ asset('img/icons/edit.svg') }}" type="desktop" ev_id="{{$ev->id}}" ev_name="{{ $ev->name }}" ev_date="{{ $ev->date }}" ev_value="{{ $ev->value }}" valuesum="{{ $valueSum - $ev->value }}" c_id="{{ $course->id }}"> </edit-evaluation>
                                                     <delete-evaluation image="{{ asset('img/icons/trash.svg') }}" type="desktop"> </delete-evaluation>
                                                 </td>
                                             </tr>
@@ -95,9 +95,9 @@
 
                         @foreach($evs as $ev)
                             <div class="h6"> <b> Evaluación: </b> {{ $ev->name }} </div>
-                            <div class="h6"> <b> Fecha: </b> {{ $ev->date }} </div>
+                            <div class="h6"> <b> Fecha: </b> {{ date('d/m/Y', strtotime($ev->date)) }} </div>
                             <div class="h6"> <b> Porcentaje: </b> {{ $ev->value }} % </div>
-                            <edit-evaluation image="" type="mobile"> </edit-evaluation>
+                            <edit-evaluation image="" type="mobile" ev_id="{{$ev->id}}" ev_name="{{ $ev->name }}" ev_date="{{ $ev->date }}" ev_value="{{ $ev->value }}" valuesum="{{ $valueSum - $ev->value }}" c_id="{{ $course->id }}"> </edit-evaluation>
                             <delete-evaluation image="" type="mobile"> </delete-evaluation>
                             
                             <hr style="background-color: #a0a0a0; height: 0.01rem">
