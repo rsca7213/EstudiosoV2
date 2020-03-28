@@ -2216,7 +2216,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["image", "type"]
+});
 
 /***/ }),
 
@@ -2233,7 +2238,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["image", "type"]
+});
 
 /***/ }),
 
@@ -38846,7 +38856,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("span", [
+    this.type === "desktop"
+      ? _c("img", {
+          staticStyle: { width: "1.4rem" },
+          attrs: { src: this.image, alt: "borrar" }
+        })
+      : _vm._e(),
+    _vm._v(" "),
+    this.type === "mobile"
+      ? _c("button", { staticClass: "btn btn-danger" }, [_vm._v(" Borrar ")])
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38870,7 +38891,18 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c("span", [
+    this.type === "desktop"
+      ? _c("img", {
+          staticStyle: { width: "1.4rem" },
+          attrs: { src: this.image, alt: "editar" }
+        })
+      : _vm._e(),
+    _vm._v(" "),
+    this.type === "mobile"
+      ? _c("button", { staticClass: "btn btn-secondary" }, [_vm._v(" Editar ")])
+      : _vm._e()
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true

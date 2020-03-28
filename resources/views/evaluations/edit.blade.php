@@ -60,8 +60,8 @@
                                                 <td> {{ $ev->date }} </td>
                                                 <td> {{ $ev->value }}% </td>
                                                 <td> 
-                                                    <img src="{{ asset('img/icons/edit.svg') }}" alt="editar" style="width: 1.4rem">
-                                                    <img src="{{ asset('img/icons/trash.svg') }}" alt="borrar" style="width: 1.4rem">
+                                                    <edit-evaluation image="{{ asset('img/icons/edit.svg') }}" type="desktop"> </edit-evaluation>
+                                                    <delete-evaluation image="{{ asset('img/icons/trash.svg') }}" type="desktop"> </delete-evaluation>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -97,8 +97,9 @@
                             <div class="h6"> <b> Evaluación: </b> {{ $ev->name }} </div>
                             <div class="h6"> <b> Fecha: </b> {{ $ev->date }} </div>
                             <div class="h6"> <b> Porcentaje: </b> {{ $ev->value }} % </div>
-                            <button class="btn btn-secondary"> Editar </button>
-                            <button class="btn btn-danger"> Borrar </button>
+                            <edit-evaluation image="" type="mobile"> </edit-evaluation>
+                            <delete-evaluation image="" type="mobile"> </delete-evaluation>
+                            
                             <hr style="background-color: #a0a0a0; height: 0.01rem">
                         @endforeach
 
