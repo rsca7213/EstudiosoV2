@@ -5,7 +5,7 @@
         </button>
         <div class="modal fade" tabindex="-1" role="dialog" :id="mId">
             <div class="modal-dialog modal-dialog-centered" role="document" :class="this.pr">
-                <div class="modal-content"  style="background-color: whitesmoke">
+                <div class="modal-content" :class="submitError" style="background-color: whitesmoke">
                     <div class="modal-header">
                         <h5 class="modal-title">
                             <b>Agregar Evaluación</b>
@@ -52,6 +52,7 @@ export default {
             this.valueInput = null;
             this.dateInput = null;
             this.nameInput = null;
+            this.submitError = "";
             console.log("%cInputs have been reset!", "color: lightblue");
         },
 
@@ -76,12 +77,17 @@ export default {
                     location.replace('/login');
                 }
                 else if(errors.response.status == 400) {
+                    this.submitError = "submitError";
                     this.nameErrorText = "El nombre de la evaluación no puede ser igual a otras evaluaciones del curso.";
                 }
                 else if(errors.response.status == 422) {
+                    this.submitError = "submitError";
                     this.valueErrorText = "Por favor verifique que el porcentaje acumulado de las evaluaciones no supere el 100%.";
                 }
-                else this.nameErrorText = "Ha ocurrido un error, por favor intentelo más tarde.";
+                else {
+                    this.submitError = "submitError";
+                    this.nameErrorText = "Ha ocurrido un error, por favor intentelo más tarde."; 
+                }
             });
         }
     },
@@ -96,7 +102,8 @@ export default {
             dateInput: null,
             valueInput: null,
             valueErrorText: null,
-            btnError: ""
+            btnError: "",
+            submitError: ""
         };
     },
 
@@ -160,5 +167,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+    .submitError {
+        border: 1px red solid;
+    }
 </style>
