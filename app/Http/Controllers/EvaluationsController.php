@@ -17,8 +17,16 @@ class EvaluationsController extends Controller
             $user = auth()->user();
             $course = Course::findOrFail($c_id);
             if($user->id == $course->user_id) {
+                $evs = $course->evaluations()->where('course_id', $course->id)->get()->sortBy('date');
+                $acum = 0;
+                foreach ($evs as $ev) {
+                    $ev->date = date('d/m/Y', strtotime($ev->date));
+                    $acum += $ev->value;
+                }
                 return view('evaluations.edit', [
-                    'course' => $course
+                    'course' => $course,
+                    'evs' => $evs,
+                    'valueSum' => $acum
                 ]);
             }
             else return view('auth.login');

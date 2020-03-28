@@ -50,42 +50,24 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <th scope="row"> 1 </th>
-                                            <td class="text-left"> Actividad por Competencias </td>
-                                            <td> 25/05/2020 </td>
-                                            <td> 35% </td>
-                                            <td> 
-                                                <img src="{{ asset('img/icons/edit.svg') }}" alt="editar" style="width: 1.4rem">
-                                                <img src="{{ asset('img/icons/trash.svg') }}" alt="borrar" style="width: 1.4rem">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"> 2 </th>
-                                            <td class="text-left"> Parcial #1 </td>
-                                            <td> 31/07/2021 </td>
-                                            <td> 15% </td>
-                                            <td> 
-                                                <img src="{{ asset('img/icons/edit.svg') }}" alt="editar" style="width: 1.4rem">
-                                                <img src="{{ asset('img/icons/trash.svg') }}" alt="borrar" style="width: 1.4rem">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th scope="row"> 3 </th>
-                                            <td class="text-left"> Proyecto </td>
-                                            <td> 12/02/2022 </td>
-                                            <td> 25% </td>
-                                            <td> 
-                                                <img src="{{ asset('img/icons/edit.svg') }}" alt="editar" style="width: 1.4rem">
-                                                <img src="{{ asset('img/icons/trash.svg') }}" alt="borrar" style="width: 1.4rem">
-                                            </td>
-                                        </tr>
+                                        @foreach ($evs as $ev)
+                                            <tr>
+                                                <th scope="row"> {{ $loop->iteration }} </th>
+                                                <td class="text-left"> {{ $ev->name }} </td>
+                                                <td> {{ $ev->date }} </td>
+                                                <td> {{ $ev->value }}% </td>
+                                                <td> 
+                                                    <img src="{{ asset('img/icons/edit.svg') }}" alt="editar" style="width: 1.4rem">
+                                                    <img src="{{ asset('img/icons/trash.svg') }}" alt="borrar" style="width: 1.4rem">
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                         <hr>
-                        <div class="col"> <create-evaluation type="btn-lg float-right mr-4" modaltype="Lg" pr="" csrf="{{ csrf_token() }}" valueSum="60" c_id="{{ $course->id }}"> </create-evaluation> </div>
+                        <div class="col"> <create-evaluation type="btn-lg float-right mr-4" modaltype="Lg" pr="" csrf="{{ csrf_token() }}" valueSum="{{ $valueSum }}" c_id="{{ $course->id }}"> </create-evaluation> </div>
                     </div>
                     <div class="card-footer bg-dark text-light"> 
                         <div class="col text-center"> 
@@ -103,28 +85,16 @@
                         <div class="h5 text-center"> Evaluaciones del Curso </div>
                         <hr style="background-color: #a0a0a0; height: 0.01rem">
 
-                        <div class="h6"> <b> Evaluación: </b> Actividad por Competencias </div>
-                        <div class="h6"> <b> Fecha: </b> 25/05/2020 </div>
-                        <div class="h6"> <b> Porcentaje: </b> 35% </div>
-                        <button class="btn btn-secondary"> Editar </button>
-                        <button class="btn btn-danger"> Borrar </button>
-                        <hr style="background-color: #a0a0a0; height: 0.01rem">
+                        @foreach($evs as $ev)
+                            <div class="h6"> <b> Evaluación: </b> {{ $ev->name }} </div>
+                            <div class="h6"> <b> Fecha: </b> {{ $ev->date }} </div>
+                            <div class="h6"> <b> Porcentaje: </b> {{ $ev->value }} % </div>
+                            <button class="btn btn-secondary"> Editar </button>
+                            <button class="btn btn-danger"> Borrar </button>
+                            <hr style="background-color: #a0a0a0; height: 0.01rem">
+                        @endforeach
 
-                        <div class="h6"> <b> Evaluación: </b> Parcial #1 </div>
-                        <div class="h6"> <b> Fecha: </b> 31/07/2021 </div>
-                        <div class="h6"> <b> Porcentaje: </b> 15% </div>
-                        <button class="btn btn-secondary"> Editar </button>
-                        <button class="btn btn-danger"> Borrar </button>
-                        <hr style="background-color: #a0a0a0; height: 0.01rem">
-
-                        <div class="h6"> <b> Evaluación: </b> Proyecto </div>
-                        <div class="h6"> <b> Fecha: </b> 12/02/2022 </div>
-                        <div class="h6"> <b> Porcentaje: </b> 25% </div>
-                        <button class="btn btn-secondary"> Editar </button>
-                        <button class="btn btn-danger"> Borrar </button>
-                        <hr style="background-color: #a0a0a0; height: 0.01rem">
-
-                        <div class="col text-center"> <create-evaluation type="" modaltype="" pr="pr-3" csrf="{{ csrf_token() }}" valueSum="60" c_id="{{ $course->id }}"> </create-evaluation> </div>
+                        <div class="col text-center"> <create-evaluation type="" modaltype="" pr="pr-3" csrf="{{ csrf_token() }}" valueSum="{{ $valueSum }}" c_id="{{ $course->id }}"> </create-evaluation> </div>
                     </div>
                     <div class="card-footer bg-dark text-light text-center">
                         <button class="btn btn-success"> Finalizar </button>
