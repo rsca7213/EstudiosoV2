@@ -43,7 +43,7 @@
                                     <thead class="thead-dark"> 
                                         <tr>
                                             <th scope="col"> # </th>
-                                            <th scope="col"> Nombre </th>
+                                            <th scope="col" class="text-left"> Nombre </th>
                                             <th scope="col"> Fecha </th>
                                             <th scope="col"> Porcentaje </th>
                                             <th scope="col"> Acción </th>
@@ -52,7 +52,7 @@
                                     <tbody>
                                         <tr>
                                             <th scope="row"> 1 </th>
-                                            <td> Actividad por Competencias </td>
+                                            <td class="text-left"> Actividad por Competencias </td>
                                             <td> 25/05/2020 </td>
                                             <td> 35% </td>
                                             <td> 
@@ -62,7 +62,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row"> 2 </th>
-                                            <td> Parcial #1 </td>
+                                            <td class="text-left"> Parcial #1 </td>
                                             <td> 31/07/2021 </td>
                                             <td> 15% </td>
                                             <td> 
@@ -72,7 +72,7 @@
                                         </tr>
                                         <tr>
                                             <th scope="row"> 3 </th>
-                                            <td> Proyecto </td>
+                                            <td class="text-left"> Proyecto </td>
                                             <td> 12/02/2022 </td>
                                             <td> 25% </td>
                                             <td> 
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="col"> <button class="btn btn-primary btn-lg mr-4 float-right"> Agregar Evaluación </button> </div>
+                        <div class="col"> <create-evaluation type="btn-lg float-right mr-4" modaltype="Lg" pr="" csrf="{{ csrf_token() }}" valueSum="60" c_id="{{ $course->id }}"> </create-evaluation> </div>
                     </div>
                     <div class="card-footer bg-dark text-light"> 
                         <div class="col text-center"> 
@@ -124,7 +124,7 @@
                         <button class="btn btn-danger"> Borrar </button>
                         <hr style="background-color: #a0a0a0; height: 0.01rem">
 
-                        <div class="col text-center"> <button class="btn btn-primary"> Agregar Evaluación </button> </div>
+                        <div class="col text-center"> <create-evaluation type="" modaltype="" pr="pr-3" csrf="{{ csrf_token() }}" valueSum="60" c_id="{{ $course->id }}"> </create-evaluation> </div>
                     </div>
                     <div class="card-footer bg-dark text-light text-center">
                         <button class="btn btn-success"> Finalizar </button>

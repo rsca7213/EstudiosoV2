@@ -30,5 +30,6 @@ Route::post('/courses/add/store', 'CoursesController@store');
 Route::get('/courses/view', 'CoursesController@index')->name('viewCourses');
 Route::delete('/courses/view/delete', 'CoursesController@delete');
 
-//Evaluations: View
+//Evaluations: View/Create
 Route::get('/evaluations/modify/{c_id}', 'EvaluationsController@index');
+Route::post('/evaluations/modify/{c_id}/store', 'EvaluationsController@store');
