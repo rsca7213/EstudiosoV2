@@ -50,6 +50,9 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @if($valueSum == 0) 
+                                            <tr> <td colspan="5"> <b> ¡En estos momentos el curso no tiene evaluaciones! <br> Puedes agregarlas haciendo click en "Agregar Evaluación". </b> </td> </tr>
+                                        @endif
                                         @foreach ($evs as $ev)
                                             <tr>
                                                 <th scope="row"> {{ $loop->iteration }} </th>
@@ -84,6 +87,11 @@
                     <div class="card-body">
                         <div class="h5 text-center"> Evaluaciones del Curso </div>
                         <hr style="background-color: #a0a0a0; height: 0.01rem">
+
+                        @if($valueSum == 0)
+                            <div class="h6 text-center"> <b> ¡En estos momentos el curso no tiene evaluaciones! Puedes agregarlas haciendo click en "Agregar Evaluación". </b>  </div>
+                            <hr style="background-color: #A0A0A0; height: 0.01rem">
+                        @endif
 
                         @foreach($evs as $ev)
                             <div class="h6"> <b> Evaluación: </b> {{ $ev->name }} </div>
