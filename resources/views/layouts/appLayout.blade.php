@@ -53,10 +53,10 @@
             @yield('content')
         </main>
         <footer>
-            <div class="d-block d-md-none mt-4">
+            <div class="d-block d-lg-none mt-4">
                 @yield('mobileFooter')
             </div>
-            <div class="d-none d-md-block mt-4">
+            <div class="d-none d-lg-block mt-4">
                 @yield('desktopFooter')
             </div>     
         </footer>

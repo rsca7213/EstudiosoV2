@@ -29,3 +29,6 @@ Route::post('/courses/add/store', 'CoursesController@store');
 //Courses: View, Delete
 Route::get('/courses/view', 'CoursesController@index')->name('viewCourses');
 Route::delete('/courses/view/delete', 'CoursesController@delete');
+
+//Evaluations: View
+Route::get('/evaluations/modify/{c_id}', 'EvaluationsController@index');
