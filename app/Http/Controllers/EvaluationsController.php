@@ -97,6 +97,16 @@ class EvaluationsController extends Controller
     }
 
     public function delete ($c_id, $ev_id) {
-        return response('Success', 200);
+        if(Auth::check()) {
+            $user = auth()->user();
+            $course = Course::findOrFail($c_id);
+            $ev = Evaluation::findOrFail($ev_id);
+            if($course->user_id == $user->id && $ev->course_id == $course->id) {
+                $ev->delete();
+                return response('Success', 200);
+            }
+            else return response('Unauthorized', 401);
+        }
+        else return response('Unauthorized', 400);
     }
 }

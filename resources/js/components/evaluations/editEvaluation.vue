@@ -3,7 +3,7 @@
         <img :src="this.image" alt="editar" style="width: 1.4rem; cursor: pointer" v-if="this.type === 'desktop'" data-toggle="modal" :data-target="editM_tg">
         <button class="btn btn-secondary" v-if="this.type === 'mobile'" data-toggle="modal" :data-target="editM_tg"> Editar </button>
         <div class="modal fade" tabindex="-1" role="dialog" :id="editM_id">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document" :class="this.pr">
                 <div class="modal-content" :class="submitError" style="background-color: whitesmoke">
                     <div class="modal-header">
                         <h5 class="modal-title">
@@ -44,7 +44,7 @@
 
 <script>
 export default {
-    props: ["image", "type", "ev_id", "ev_name", "ev_date", "ev_value", "valuesum", "c_id"],
+    props: ["image", "type", "ev_id", "ev_name", "ev_date", "ev_value", "valuesum", "c_id", "pr"],
 
     methods: {
         resetInputs() {

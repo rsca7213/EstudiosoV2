@@ -60,8 +60,8 @@
                                                 <td> {{ date('d/m/Y', strtotime($ev->date)) }} </td>
                                                 <td> {{ $ev->value }}% </td>
                                                 <td> 
-                                                    <edit-evaluation image="{{ asset('img/icons/edit.svg') }}" type="desktop" ev_id="{{$ev->id}}" ev_name="{{ $ev->name }}" ev_date="{{ $ev->date }}" ev_value="{{ $ev->value }}" valuesum="{{ $valueSum - $ev->value }}" c_id="{{ $course->id }}"> </edit-evaluation>
-                                                    <delete-evaluation image="{{ asset('img/icons/trash.svg') }}" type="desktop"> </delete-evaluation>
+                                                    <edit-evaluation image="{{ asset('img/icons/edit.svg') }}" type="desktop" ev_id="{{$ev->id}}" ev_name="{{ $ev->name }}" ev_date="{{ $ev->date }}" ev_value="{{ $ev->value }}" valuesum="{{ $valueSum - $ev->value }}" c_id="{{ $course->id }}" pr=""> </edit-evaluation>
+                                                    <delete-evaluation image="{{ asset('img/icons/trash.svg') }}" type="desktop"  ev_id="{{ $ev->id }}" ev_name="{{ $ev->name }}" c_id="{{ $course->id }}" pr=""> </delete-evaluation>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -74,7 +74,7 @@
                     </div>
                     <div class="card-footer bg-dark text-light"> 
                         <div class="col text-center"> 
-                            <button class="btn btn-success btn-lg"> Finalizar </button>
+                            <a href="{{ route('viewCourses') }}" class="btn btn-success btn-lg"> Finalizar </a>
                         </div>
                     </div>
                 </div>
@@ -97,8 +97,8 @@
                             <div class="h6"> <b> Evaluación: </b> {{ $ev->name }} </div>
                             <div class="h6"> <b> Fecha: </b> {{ date('d/m/Y', strtotime($ev->date)) }} </div>
                             <div class="h6"> <b> Porcentaje: </b> {{ $ev->value }} % </div>
-                            <edit-evaluation image="" type="mobile" ev_id="{{$ev->id}}" ev_name="{{ $ev->name }}" ev_date="{{ $ev->date }}" ev_value="{{ $ev->value }}" valuesum="{{ $valueSum - $ev->value }}" c_id="{{ $course->id }}"> </edit-evaluation>
-                            <delete-evaluation image="" type="mobile"> </delete-evaluation>
+                            <edit-evaluation image="" type="mobile" ev_id="{{$ev->id}}" ev_name="{{ $ev->name }}" ev_date="{{ $ev->date }}" ev_value="{{ $ev->value }}" valuesum="{{ $valueSum - $ev->value }}" c_id="{{ $course->id }}" pr="pr-3"> </edit-evaluation>
+                            <delete-evaluation image="" type="mobile" ev_id="{{ $ev->id }}" ev_name="{{ $ev->name }}" c_id="{{ $course->id }}" pr="pr-3"> </delete-evaluation>
                             
                             <hr style="background-color: #a0a0a0; height: 0.01rem">
                         @endforeach
@@ -106,7 +106,7 @@
                         <div class="col text-center"> <create-evaluation type="" modaltype="" pr="pr-3" csrf="{{ csrf_token() }}" valueSum="{{ $valueSum }}" c_id="{{ $course->id }}"> </create-evaluation> </div>
                     </div>
                     <div class="card-footer bg-dark text-light text-center">
-                        <button class="btn btn-success"> Finalizar </button>
+                        <a href="{{ route('viewCourses') }}" class="btn btn-success"> Finalizar </a>
                     </div>
                 </div>    
             </div>
