@@ -1,5 +1,6 @@
 <template>
     <span class="createGrade"> 
+        <span class="add"> Agregar... </span>
         <img :src="this.image" alt="agregar" style="width: 1.35rem; cursor: pointer" data-toggle="modal" :data-target="mTg">
         <div class="modal fade" tabindex="-1" role="dialog" :id="mId">
             <div class="modal-dialog modal-dialog-centered modal-sm" role="document" :class="this.pr">
@@ -119,5 +120,8 @@ export default {
     }
     .submitError {
         border: 1px red solid;
+    }
+    .add {
+        color: #212529;
     }
 </style>

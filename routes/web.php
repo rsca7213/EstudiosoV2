@@ -31,7 +31,7 @@ Route::get('/courses/view', 'CoursesController@index')->name('viewCourses');
 Route::delete('/courses/view/delete', 'CoursesController@delete');
 
 //Evaluations: View/Create/Edit/Delete
-Route::get('/evaluations/modify/{c_id}', 'EvaluationsController@index');
+Route::get('/evaluations/modify/{c_id}', 'EvaluationsController@index')->name('viewEvaluations');
 Route::post('/evaluations/modify/{c_id}/store', 'EvaluationsController@store');
 Route::patch('/evaluations/modify/{c_id}/update/{ev_id}', 'EvaluationsController@update');
 Route::delete('/evaluations/modify/{c_id}/delete/{ev_id}', 'EvaluationsController@delete');
@@ -39,3 +39,5 @@ Route::delete('/evaluations/modify/{c_id}/delete/{ev_id}', 'EvaluationsControlle
 //Grades: View/Create/Edit/Delete
 Route::get('/grades/{c_id}', 'GradesController@index')->name('viewGrades');
 Route::post('/grades/{c_id}/store/{ev_id}', 'GradesController@store');
+Route::patch('/grades/{c_id}/update/{ev_id}', 'GradesController@update');
+Route::delete('/grades/{C_id}/delete/{ev_id}', 'GradesController@delete');

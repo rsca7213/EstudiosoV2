@@ -46,4 +46,39 @@ class GradesController extends Controller
         }
         else return response('Unauthorized', 401);
     }
+
+    public function update (Request $request, $c_id, $ev_id) {
+        if(Auth::check()) {
+            $user = auth()->user();
+            $course = Course::findOrFail($c_id);
+            $ev = Evaluation::findOrFail($ev_id);
+            if($course->user_id == $user->id && $ev->course_id == $course->id) {
+                $data = $request->validate([
+                    'grade' => 'required|numeric|max:20|min:0'
+                ]);
+                $ev->update([
+                    'grade' => $data['grade']
+                ]);
+                return response('Success', 200);
+            }
+            else return response('Unauthorized', 401);
+        }
+        else return response('Unauthorized', 401);
+    }
+
+    public function delete ($c_id, $ev_id) {
+        if(Auth::check()) {
+            $user = auth()->user();
+            $course = Course::findOrFail($c_id);
+            $ev = Evaluation::findOrFail($ev_id);
+            if($course->user_id == $user->id && $ev->course_id == $course->id) {
+                $ev->update([
+                    'grade' => null
+                ]);
+                return response('Success', 200);
+            }
+            else return response('Unauthorized', 401);
+        }
+        else return response('Unauthorized', 401);
+    }
 }
