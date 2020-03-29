@@ -35,3 +35,6 @@ Route::get('/evaluations/modify/{c_id}', 'EvaluationsController@index');
 Route::post('/evaluations/modify/{c_id}/store', 'EvaluationsController@store');
 Route::patch('/evaluations/modify/{c_id}/update/{ev_id}', 'EvaluationsController@update');
 Route::delete('/evaluations/modify/{c_id}/delete/{ev_id}', 'EvaluationsController@delete');
+
+//Grades: View/Create/Edit/Delete
+Route::get('/grades/{c_id}', 'GradesController@index')->name('viewGrades');

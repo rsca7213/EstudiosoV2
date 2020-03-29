@@ -47,11 +47,11 @@
                                 </div>
                                 <div class="col-12 col-lg-6 text-right">
                                     <div class="d-none d-md-block">
-                                        <a href="#" class="btn btn-primary btn-lg mx-1"> Ver Evaluaciones </a>
+                                        <a href="{{ route('viewGrades', ['c_id' => $course->id ]) }}" class="btn btn-primary btn-lg mx-1"> Ver Evaluaciones </a>
                                         <delete-course-lg c_id="{{ $course->id }}" c_n="{{ $course->name }}" csrf="{{ csrf_token() }}"> </delete-course-lg>
                                     </div>
                                     <div class="d-block d-md-none text-left mt-1">
-                                        <a href="#" class="btn btn-primary mx-1"> Ver Evaluaciones </a>
+                                        <a href="{{ route('viewGrades', ['c_id' => $course->id ]) }}" class="btn btn-primary mx-1"> Ver Evaluaciones </a>
                                         <delete-course  c_id="{{ $course->id }}" c_n="{{ $course->name }}" csrf="{{ csrf_token() }}"> </delete-course>
                                     </div>
                                 </div>
