@@ -38,3 +38,4 @@ Route::delete('/evaluations/modify/{c_id}/delete/{ev_id}', 'EvaluationsControlle
 
 //Grades: View/Create/Edit/Delete
 Route::get('/grades/{c_id}', 'GradesController@index')->name('viewGrades');
+Route::post('/grades/{c_id}/store/{ev_id}', 'GradesController@store');

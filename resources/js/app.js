@@ -10,6 +10,11 @@ Vue.component('create-evaluation', require('./components/evaluations/createEvalu
 Vue.component('delete-evaluation', require('./components/evaluations/deleteEvaluation.vue').default);
 Vue.component('edit-evaluation', require('./components/evaluations/editEvaluation.vue').default);
 
+//Components of grades.edit.blade.php
+Vue.component('create-grade', require('./components/grades/createGrade.vue').default);
+Vue.component('edit-grade', require('./components/grades/editGrade.vue').default);
+Vue.component('delete-grade', require('./components/grades/deleteGrade.vue').default);
+
 const app = new Vue({
     el: '#app',
 });

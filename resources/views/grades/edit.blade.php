@@ -44,17 +44,46 @@
                                 <thead class="thead-dark">
                                     <tr>
                                         <th scope="col"> # </th>
-                                        <th scope="col" class="test-left"> Nombre </th>
+                                        <th scope="col" class="text-left"> Nombre </th>
                                         <th scope="col"> Fecha </th>
                                         <th scope="col"> Porcentaje </th>
                                         <th scope="col"> Calificación </th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    @foreach ($evs as $ev)
+                                    <tr>
+                                        <th scope="row"> {{ $loop->iteration }} </th>
+                                        <td class="text-left"> {{ $ev->name }} </td>
+                                        <td> {{ $ev->date }} </td>
+                                        <td> {{ $ev->value }} % </td>
+                                        <td>
+                                            @if (!isset($ev->grade))
+                                                <create-grade image="{{ asset('/img/icons/add.svg') }}" type="lg" pr="" ev_id="{{ $ev->id }}" ev_name="{{ $ev->name }}" c_id="{{ $course->id }}"> </create-grade>
+                                            @else
+                                                <span> {{ $ev->grade }} de 20 </span>
+                                                <edit-grade> </edit-grade>
+                                                <delete-grade> </delete-grade>
+                                            @endif
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
                             </table>    
                         </div>    
                     </div> 
+                    <hr>
                 </div>
                 <div class="card-footer bg-dark text-light"> 
+                    <div class="row d-flex justify-content-between">
+                        <div class="col text-left">
+                            <button class="mr-1 btn btn-danger btn-lg"> Borrar Curso </button> 
+                            <button class="ml-1 btn btn-secondary btn-lg"> Editar Curso </button> 
+                        </div>
+                        <div class="col text-right">
+                            <button class="mx-1 btn btn-primary btn-lg"> Información del Curso </button> 
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
