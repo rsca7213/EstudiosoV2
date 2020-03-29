@@ -14,6 +14,7 @@ Vue.component('edit-evaluation', require('./components/evaluations/editEvaluatio
 Vue.component('create-grade', require('./components/grades/createGrade.vue').default);
 Vue.component('edit-grade', require('./components/grades/editGrade.vue').default);
 Vue.component('delete-grade', require('./components/grades/deleteGrade.vue').default);
+Vue.component('course-info', require('./components/grades/courseInfo.vue').default);
 
 const app = new Vue({
     el: '#app',
