@@ -81,7 +81,7 @@
                             <a class="ml-1 btn btn-secondary btn-lg" href="{{ route('viewEvaluations', ['c_id' => $course->id]) }}"> Editar Curso </a> 
                         </div>
                         <div class="col text-right">
-                            <course-info> </course-info>
+                            <course-info type="lg" pr="" c_id="{{ $course->id }}" c_name="{{ $course->name }}"> </course-info>
                         </div>
                     </div>
                 </div>

@@ -81,4 +81,30 @@ class GradesController extends Controller
         }
         else return response('Unauthorized', 401);
     }
+
+    public function info ($c_id) {
+        if(Auth::check()) {
+            $user = auth()->user();
+            $course = Course::findOrFail($c_id);
+            if($user->id == $course->user_id) {
+                $evs = $course->evaluations()->where('course_id', $course->id)->get();
+                $data = [];
+                $data['totEv'] = 0;
+                $data['totSE'] = 100;
+                $data['totOb'] = 0;
+                $data['totPe'] = 0;
+                foreach($evs as $ev) {
+                    if($ev->grade) {
+                        $data['totEv'] += $ev->value;
+                        $data['totSE'] -= $ev->value;
+                        $data['totOb'] += $ev->grade*$ev->value/20;
+                        $data['totPe'] += $ev->value - ($ev->grade*$ev->value/20);
+                    }
+                } 
+                return response($data, 200);
+            }
+            else return response('Unauthorized', 401);
+        }
+        else return response('Unauthorized', 401);
+    }
 }
