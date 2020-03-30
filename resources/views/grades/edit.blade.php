@@ -10,7 +10,7 @@
     </li>
     <span class="navbarItem d-none d-lg-block"> | </span>
     <li class="mx-2 nav-item">
-        <a href="{{ route('viewCourses') }}" class="navbarItem"> Ver Cursos </a>
+        <a href="{{ route('viewCourses') }}" class="navbarItemActive"> Ver Cursos </a>
     </li>
     <span class="navbarItem d-none d-lg-block"> | </span>
     <li class="mx-2 nav-item">
@@ -51,6 +51,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(!$evs->first())
+                                        <tr> <td colspan="5"> <b> ¡En estos momentos el curso no tiene evaluaciones! <br> Puedes agregarlas haciendo click en "Editar Curso".  </b> </td> </tr>
+                                    @endif
                                     @foreach ($evs as $ev)
                                     <tr>
                                         <th scope="row"> {{ $loop->iteration }} </th>
@@ -98,6 +101,10 @@
                     <div class="h5 text-center">
                         Evaluaciones del Curso
                         <hr style="background-color: #a0a0a0; height: 0.01rem">
+                        @if(!$evs->first())
+                            <div class="h6 text-center"> <b> ¡En estos momentos el curso no tiene evaluaciones! <br> Puedes agregarlas haciendo click en "Editar Curso".  </b> </div>
+                            <hr style="background-color: #a0a0a0; height: 0.01rem">
+                        @endif
                         @foreach ($evs as $ev)
                             <div class="h6 text-left"> <b> Evaluación: </b> {{ $ev->name }} </div>
                             <div class="h6 text-left"> <b> Fecha: </b> {{ date('d/m/Y', strtotime($ev->date)) }}</div>

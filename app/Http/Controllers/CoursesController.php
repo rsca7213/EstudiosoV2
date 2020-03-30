@@ -41,13 +41,13 @@ class CoursesController extends Controller
                 if($course->name == $data['name']) return back()->withErrors(['name' => ['Ya tiene un curso con este nombre.']]);
             }
 
-            auth()->user()->courses()->create([
+            $newid = auth()->user()->courses()->create([
                 'user_id' => auth()->user()->id,
                 'name' => $data['name'],
                 'teacher' => $data['teacher'],
                 'color' => $data['color']
-            ]);
-            return redirect('/courses/view');
+            ])->id;
+            return redirect('/evaluations/modify/'.$newid);
         }
     }
 

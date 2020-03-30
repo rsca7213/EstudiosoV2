@@ -10,7 +10,7 @@
     </li>
     <span class="navbarItem d-none d-lg-block"> | </span>
     <li class="mx-2 nav-item">
-        <a href="{{ route('viewCourses') }}" class="navbarItem"> Ver Cursos </a>
+        <a href="{{ route('viewCourses') }}" class="navbarItemActive"> Ver Cursos </a>
     </li>
     <span class="navbarItem d-none d-lg-block"> | </span>
     <li class="mx-2 nav-item">
