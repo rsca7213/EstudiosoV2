@@ -16,6 +16,9 @@ Vue.component('edit-grade', require('./components/grades/editGrade.vue').default
 Vue.component('delete-grade', require('./components/grades/deleteGrade.vue').default);
 Vue.component('course-info', require('./components/grades/courseInfo.vue').default);
 
+//Components of home.blade.php
+Vue.component('days-left', require('./components/home/daysLeft.vue').default);
+
 const app = new Vue({
     el: '#app',
 });

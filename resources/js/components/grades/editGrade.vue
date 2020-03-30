@@ -1,6 +1,6 @@
 <template>
     <span class="editGrade"> 
-        <img :src="this.image" alt="editar" style="width: 1.2rem; cursor: pointer" data-toggle="modal" :data-target="mTg">
+        <img :src="this.image" alt="editar" style="width: 1.25rem; cursor: pointer" data-toggle="modal" :data-target="mTg">
         <div class="modal fade" tabindex="-1" role="dialog" :id="mId">
             <div class="modal-dialog modal-dialog-centered modal-sm" role="document" :class="this.pr">
                 <div class="modal-content" :class="submitError" style="background-color: whitesmoke">

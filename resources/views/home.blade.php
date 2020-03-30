@@ -40,7 +40,7 @@
                         <div class="h4 text-center"> Evaluaciones Próximas </div>
                         <div class="row d-flex mx-4">
                             <div class="col">
-                                <table class="table table-striped border border-dark shadow-lg">
+                                <table class="table table-striped table-hover border border-dark shadow-lg">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th scope="col"> # </th>
@@ -60,11 +60,14 @@
                                             </tr>
                                         @endif
                                         @foreach ($evs as $ev)
-                                            <tr>
-                                                <th scope="row" class="align-middle"> {{ $loop->iteration }} </th>
+                                            <tr style="transform: rotate(0);">
+                                                <th scope="row" class="align-middle"> <a href="{{ route('viewGrades', ['c_id' => $ev['course_id']]) }}" class="stretched-link text-dark"> {{ $loop->iteration }} </a> </th>
                                                 <td class="text-left align-middle"> {{ $ev['course_name'] }}</td>
                                                 <td class="text-left align-middle"> {{ $ev['name'] }}</td>
-                                                <td class="align-middle"> {{ date('d/m/Y', strtotime($ev['date'])) }} (en {{ $ev['days'] }} días) </td>
+                                                <td class="align-middle"> 
+                                                    {{ date('d/m/Y', strtotime($ev['date'])) }} 
+                                                    <b> <days-left daysleft="{{ $ev['days'] }}"> </days-left> </b>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -103,8 +106,8 @@
                             @foreach ($evs as $ev)
                                 <div class="h6 text-left"> <b> Curso: </b>  {{ $ev['course_name'] }} </div>
                                 <div class="h6 text-left"> <b> Evaluación: </b> {{ $ev['name'] }} </div>
-                                <div class="h6 text-left"> <b> Fecha: </b> {{ $ev['date'] }} <b> (en {{ $ev['days']}} días) </b> </div>
-                                <div class="text-left"> <button class="btn btn-info text-light"> Ir al Curso </button> </div>
+                                <div class="h6 text-left"> <b> Fecha: </b> {{ $ev['date'] }} <b> <days-left daysleft="{{ $ev['days'] }}"> </days-left> </b> </div>
+                                <div class="text-left"> <a class="btn btn-info text-light" href="{{ route('viewGrades', ['c_id' => $ev['course_id']]) }}"> Ir al Curso </a> </div>
                                 <hr style="background-color: #a0a0a0; height: 0.01rem">
                             @endforeach
                         </div>

@@ -33,7 +33,7 @@
                         </div>
                         <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal" @click="resetInputs"> Cancelar </button>
-                            <input type="submit" class="btn btn-primary" value="Agregar" :disabled="btnDisabled" :class="btnError">
+                            <input type="submit" class="btn btn-primary" value="Editar" :disabled="btnDisabled" :class="btnError">
                         </div>
                     </form>
                 </div>
