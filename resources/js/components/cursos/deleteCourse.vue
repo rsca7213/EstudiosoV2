@@ -1,6 +1,6 @@
 <template>
     <span>
-        <button class="btn btn-danger mx-1" data-toggle="modal" :data-target="modalTarget">Borrar</button>
+        <button class="btn btn-danger mx-1" data-toggle="modal" :data-target="modalTarget">Borrar <slot> </slot></button>
         <div class="modal fade pr-3" tabindex="-1" role="dialog" :id="modalId">
             <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
                 <div class="modal-content">

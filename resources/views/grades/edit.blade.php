@@ -94,9 +94,37 @@
                 <div class="card-header bg-dark text-light text-center h5">
                     Calificaciones: {{ $course->name }}
                 </div>
-                <div class="card-body">
+                <div class="card-body"  style="background-color: whitesmoke">
+                    <div class="h5 text-center">
+                        Evaluaciones del Curso
+                        <hr style="background-color: #a0a0a0; height: 0.01rem">
+                        @foreach ($evs as $ev)
+                            <div class="h6 text-left"> <b> Evaluación: </b> {{ $ev->name }} </div>
+                            <div class="h6 text-left"> <b> Fecha: </b> {{ date('d/m/Y', strtotime($ev->date)) }}</div>
+                            <div class="h6 text-left"> <b> Porcentaje: </b> {{ $ev->value }} % </div>
+                            @if (!isset($ev->grade))
+                                <div class="h6 text-left"> 
+                                    <b> Calificación: </b>  
+                                    <create-grade  image="{{ asset('/img/icons/add.svg') }}" type="sm" pr="pr-3" ev_id="{{ $ev->id }}" ev_name="{{ $ev->name }}" c_id="{{ $course->id }}"> </create-grade>
+                                </div>
+                            @else
+                                <div class="h6 text-left">
+                                    <b> Calificación: </b>
+                                    <span> {{ $ev->grade }} de 20 </span>
+                                    <edit-grade image="{{ asset('/img/icons/edit.svg') }}" type="sm" pr="pr-3" ev_id="{{ $ev->id }}" ev_name="{{ $ev->name }}" ev_grade="{{ $ev->grade }}" c_id="{{ $course->id }}"> </edit-grade>
+                                    <delete-grade image="{{ asset('/img/icons/trash.svg') }}" type="sm" pr="pr-3" ev_id="{{ $ev->id }}" ev_name="{{ $ev->name }}" c_id="{{ $course->id }}"> </delete-grade>
+                                </div>
+                            @endif
+                            <hr style="background-color: #a0a0a0; height: 0.01rem">
+                        @endforeach
+                        <course-info type="sm" pr="pr-3" c_id="{{ $course->id }}" c_name="{{ $course->name }}"> </course-info>
+                    </div>
                 </div>
                 <div class="card-footer bg-dark text-light text-center">
+                    <div class="row d-flex justify-content-between" style="color: #555555">
+                        <span class="ml-3"> <delete-course c_id="{{ $course->id }}" c_n="{{ $course->name }}" csrf="{{ csrf_token() }}"> Curso </delete-course> </span>
+                        <span class="mr-3"> <a class="btn btn-secondary" href="{{ route('viewEvaluations', ['c_id' => $course->id]) }}"> Editar Curso </a> </span>
+                    </div>
                 </div>
             </div>    
         </div>

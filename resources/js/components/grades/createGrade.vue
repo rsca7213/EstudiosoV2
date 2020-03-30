@@ -20,7 +20,7 @@
                             </div>
                             <div class="form-group row mx-2">
                                 <label for="grade" class="col-12 text-left mx-0 px-0"> <b> Calificación </b> (0 a 20)</label>
-                                <input type="number" class="col-10 col-lg-6 form-control" id="grade" name="grade" required autocomplete="grade" v-model.number="gradeInput" :class="gradeError">
+                                <input type="number" class="col-6 col-lg-6 form-control" id="grade" name="grade" required autocomplete="grade" v-model.number="gradeInput" :class="gradeError">
                                 <span class="form-text text-danger text-left" style="font-size: 0.8rem;"> <b v-text="gradeErrorText"> </b> </span>
                             </div>
                         </div>
@@ -41,8 +41,8 @@ export default {
 
     data() {
         return {
-            mId: "createModal" + this.modaltype + this.ev_id,
-            mTg: "#createModal" + this.modaltype + this.ev_id,
+            mId: "createModal" + this.type + this.ev_id,
+            mTg: "#createModal" + this.type + this.ev_id,
             gradeInput: null,
             gradeErrorText: null,
             btnError: "",

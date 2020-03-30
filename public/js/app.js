@@ -2524,11 +2524,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["type", "pr", "c_id", "c_name"],
   data: function data() {
     return {
       actionLink: "/grades/" + this.c_id + "/info",
+      modalId: "infoModal" + this.type,
+      modalTg: "#infoModal" + this.type,
       submitError: "",
       errorText: "",
       totEv: null,
@@ -2625,8 +2642,8 @@ __webpack_require__.r(__webpack_exports__);
   props: ["image", "type", "pr", "ev_id", "ev_name", "c_id"],
   data: function data() {
     return {
-      mId: "createModal" + this.modaltype + this.ev_id,
-      mTg: "#createModal" + this.modaltype + this.ev_id,
+      mId: "createModal" + this.type + this.ev_id,
+      mTg: "#createModal" + this.type + this.ev_id,
       gradeInput: null,
       gradeErrorText: null,
       btnError: "",
@@ -2737,8 +2754,8 @@ __webpack_require__.r(__webpack_exports__);
   props: ["image", "type", "pr", "ev_id", "ev_name", "c_id"],
   data: function data() {
     return {
-      mId: "deleteModal" + this.modaltype + this.ev_id,
-      mTg: "#deleteModal" + this.modaltype + this.ev_id,
+      mId: "deleteModal" + this.type + this.ev_id,
+      mTg: "#deleteModal" + this.type + this.ev_id,
       gradeErrorText: null,
       submitError: "",
       actionLink: "/grades/" + this.c_id + "/delete/" + this.ev_id
@@ -2819,8 +2836,8 @@ __webpack_require__.r(__webpack_exports__);
   props: ["image", "type", "pr", "ev_id", "ev_name", "ev_grade", "c_id"],
   data: function data() {
     return {
-      mId: "createModal" + this.modaltype + this.ev_id,
-      mTg: "#createModal" + this.modaltype + this.ev_id,
+      mId: "createModal" + this.type + this.ev_id,
+      mTg: "#createModal" + this.type + this.ev_id,
       gradeInput: this.ev_grade,
       gradeErrorText: null,
       btnError: "",
@@ -39199,7 +39216,8 @@ var render = function() {
         staticClass: "btn btn-danger mx-1",
         attrs: { "data-toggle": "modal", "data-target": _vm.modalTarget }
       },
-      [_vm._v("Borrar")]
+      [_vm._v("Borrar "), _vm._t("default")],
+      2
     ),
     _vm._v(" "),
     _c(
@@ -40255,21 +40273,35 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("span", { staticClass: "courseInfo" }, [
-    _c(
-      "button",
-      {
-        staticClass: "btn btn-primary btn-lg mx-1",
-        attrs: { "data-toggle": "modal", "data-target": "#infoModal" },
-        on: { click: _vm.submit }
-      },
-      [_vm._v(" Información del Curso ")]
-    ),
+    this.type == "lg"
+      ? _c(
+          "button",
+          {
+            staticClass: "btn btn-primary btn-lg mx-1",
+            attrs: { "data-toggle": "modal", "data-target": _vm.modalTg },
+            on: { click: _vm.submit }
+          },
+          [_vm._v(" Información del Curso ")]
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    this.type == "sm"
+      ? _c(
+          "button",
+          {
+            staticClass: "btn btn-primary mx-1",
+            attrs: { "data-toggle": "modal", "data-target": _vm.modalTg },
+            on: { click: _vm.submit }
+          },
+          [_vm._v(" Información del Curso ")]
+        )
+      : _vm._e(),
     _vm._v(" "),
     _c(
       "div",
       {
         staticClass: "modal fade",
-        attrs: { tabindex: "-1", role: "dialog", id: "infoModal" }
+        attrs: { tabindex: "-1", role: "dialog", id: _vm.modalId }
       },
       [
         _c(
@@ -40464,7 +40496,132 @@ var render = function() {
                         ]
                       )
                     ])
-                  : _vm._e(),
+                  : _c("div", { staticClass: "modal-body text-center" }, [
+                      _c(
+                        "div",
+                        { staticClass: "row d-flex justify-content-center" },
+                        [
+                          _c("span", { staticClass: "h5" }, [
+                            _c("b", {
+                              domProps: { textContent: _vm._s(this.c_name) }
+                            })
+                          ])
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("hr", {
+                        staticStyle: {
+                          "background-color": "#a0a0a0",
+                          height: "0.01rem"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "text-left my-2",
+                          staticStyle: { "font-size": "1rem" }
+                        },
+                        [
+                          _c("b", [_vm._v(" Total Evaluado: ")]),
+                          _vm._v(" "),
+                          _c("span", {
+                            domProps: { textContent: _vm._s(_vm.totEv) }
+                          }),
+                          _vm._v(" % ("),
+                          _c("span", {
+                            domProps: { textContent: _vm._s(_vm.totEvPts) }
+                          }),
+                          _vm._v(" de 20) ")
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "text-left my-2",
+                          staticStyle: { "font-size": "1rem" }
+                        },
+                        [
+                          _c("b", [_vm._v(" Total Sin Evaluar: ")]),
+                          _vm._v(" "),
+                          _c("span", {
+                            domProps: { textContent: _vm._s(_vm.totSE) }
+                          }),
+                          _vm._v(" % ("),
+                          _c("span", {
+                            domProps: { textContent: _vm._s(_vm.totSEPts) }
+                          }),
+                          _vm._v(" de 20) ")
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "text-left my-2",
+                          staticStyle: { "font-size": "1rem" }
+                        },
+                        [
+                          _c("b", [_vm._v(" Total Obtenido: ")]),
+                          _vm._v(" "),
+                          _c("span", {
+                            domProps: { textContent: _vm._s(_vm.totOb) }
+                          }),
+                          _vm._v(" % ("),
+                          _c("span", {
+                            domProps: { textContent: _vm._s(_vm.totObPts) }
+                          }),
+                          _vm._v(" de 20) ")
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "text-left my-2",
+                          staticStyle: { "font-size": "1rem" }
+                        },
+                        [
+                          _c("b", [_vm._v(" Total Perdido: ")]),
+                          _vm._v(" "),
+                          _c("span", {
+                            domProps: { textContent: _vm._s(_vm.totPe) }
+                          }),
+                          _vm._v(" % ("),
+                          _c("span", {
+                            domProps: { textContent: _vm._s(_vm.totPePts) }
+                          }),
+                          _vm._v(" de 20) ")
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c("hr", {
+                        staticStyle: {
+                          "background-color": "#a0a0a0",
+                          height: "0.01rem"
+                        }
+                      }),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "row d-flex justify-content-center" },
+                        [
+                          _c(
+                            "span",
+                            {
+                              staticClass: "text-danger",
+                              staticStyle: { "font-size": "1rem" }
+                            },
+                            [
+                              _c("b", {
+                                domProps: { textContent: _vm._s(_vm.errorText) }
+                              })
+                            ]
+                          )
+                        ]
+                      )
+                    ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "modal-footer" }, [
                   _c(
@@ -40615,7 +40772,7 @@ var render = function() {
                               modifiers: { number: true }
                             }
                           ],
-                          staticClass: "col-10 col-lg-6 form-control",
+                          staticClass: "col-6 col-lg-6 form-control",
                           class: _vm.gradeError,
                           attrs: {
                             type: "number",
@@ -40966,7 +41123,7 @@ var render = function() {
                               modifiers: { number: true }
                             }
                           ],
-                          staticClass: "col-10 col-lg-6 form-control",
+                          staticClass: "col-6 col-lg-6 form-control",
                           class: _vm.gradeError,
                           attrs: {
                             type: "number",

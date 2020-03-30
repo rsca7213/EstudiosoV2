@@ -39,8 +39,8 @@ export default {
 
     data() {
         return {
-            mId: "deleteModal" + this.modaltype + this.ev_id,
-            mTg: "#deleteModal" + this.modaltype + this.ev_id,
+            mId: "deleteModal" + this.type + this.ev_id,
+            mTg: "#deleteModal" + this.type + this.ev_id,
             gradeErrorText: null,
             submitError: "",
             actionLink: "/grades/" + this.c_id + "/delete/" + this.ev_id

@@ -1,7 +1,8 @@
 <template>
     <span class="courseInfo"> 
-        <button class="btn btn-primary btn-lg mx-1" data-toggle="modal" data-target="#infoModal" @click="submit"> Información del Curso </button>
-        <div class="modal fade" tabindex="-1" role="dialog" id="infoModal">
+        <button class="btn btn-primary btn-lg mx-1" data-toggle="modal" :data-target="modalTg" @click="submit" v-if="this.type == 'lg'"> Información del Curso </button>
+        <button class="btn btn-primary mx-1" data-toggle="modal" :data-target="modalTg" @click="submit" v-if="this.type == 'sm'"> Información del Curso </button>
+        <div class="modal fade" tabindex="-1" role="dialog" :id="modalId">
             <div class="modal-dialog modal-dialog-centered" role="document" :class="this.pr">
                 <div class="modal-content" :class="submitError" style="background-color: whitesmoke">
                     <div class="modal-header">
@@ -55,6 +56,20 @@
                             <span class="text-danger" style="font-size: 1rem"> <b v-text="errorText"> </b> </span>
                         </div>
                     </div>
+                    <div class="modal-body text-center" v-else>
+                        <div class="row d-flex justify-content-center">
+                            <span class="h5"> <b v-text="this.c_name"> </b> </span>
+                        </div>
+                        <hr style="background-color: #a0a0a0; height: 0.01rem">
+                        <div class="text-left my-2" style="font-size: 1rem"> <b> Total Evaluado: </b> <span v-text="totEv"> </span> % (<span v-text="totEvPts"> </span> de 20) </div>
+                        <div class="text-left my-2" style="font-size: 1rem"> <b> Total Sin Evaluar: </b> <span v-text="totSE"> </span> % (<span v-text="totSEPts"> </span> de 20) </div>
+                        <div class="text-left my-2" style="font-size: 1rem"> <b> Total Obtenido: </b> <span v-text="totOb"> </span> % (<span v-text="totObPts"> </span> de 20) </div>
+                        <div class="text-left my-2" style="font-size: 1rem"> <b> Total Perdido: </b> <span v-text="totPe"> </span> % (<span v-text="totPePts"> </span> de 20) </div>
+                        <hr style="background-color: #a0a0a0; height: 0.01rem">
+                        <div class="row d-flex justify-content-center">
+                            <span class="text-danger" style="font-size: 1rem"> <b v-text="errorText"> </b> </span>
+                        </div>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal" @click="resetInputs"> Cerrar </button>
                     </div>
@@ -71,6 +86,8 @@ export default {
     data() {
         return {
             actionLink: "/grades/" + this.c_id + "/info",
+            modalId: "infoModal" + this.type,
+            modalTg: "#infoModal" + this.type,
             submitError: "",
             errorText: "",
             totEv: null,
