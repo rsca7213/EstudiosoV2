@@ -40914,7 +40914,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("span", { staticClass: "deleteGrade" }, [
     _c("img", {
-      staticStyle: { width: "1.2rem", cursor: "pointer" },
+      staticStyle: { width: "1.25rem", cursor: "pointer" },
       attrs: {
         src: this.image,
         alt: "editar",
