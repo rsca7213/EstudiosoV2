@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 use App\Course;
+use App\Evaluation;
 
 class CoursesController extends Controller
 {
@@ -56,6 +57,10 @@ class CoursesController extends Controller
             $id = $request->id;
             $course = Course::findOrFail($id);
             if($course->user_id == auth()->user()->id) {
+                $evs = $course->evaluations()->where('course_id', $course->id)->get();
+                foreach ($evs as $ev) {
+                    $ev->delete();
+                }
                 $course->delete();
                 return redirect('/courses/view');
             }

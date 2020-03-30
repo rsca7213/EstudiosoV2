@@ -19,6 +19,9 @@ Vue.component('course-info', require('./components/grades/courseInfo.vue').defau
 //Components of home.blade.php
 Vue.component('days-left', require('./components/home/daysLeft.vue').default);
 
+//Components of profiles.edit.blade.php
+Vue.component('delete-profile', require('./components/profiles/deleteProfile.vue').default);
+
 const app = new Vue({
     el: '#app',
 });

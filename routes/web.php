@@ -25,7 +25,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //User: Read/Update/Delete
 Route::get('/profile', 'ProfilesController@index')->name('editProfile');
 Route::patch('/profile/update', 'ProfilesController@update');
-Route::delete('/profile/delete', 'ProfilesController@delete');
+Route::post('/profile/delete', 'ProfilesController@delete');
 
 //Courses: Add
 Route::get('/courses/add', 'CoursesController@create')->name('addCourse');
