@@ -38,7 +38,7 @@
                             {{ auth()->user()->name }} <span class="caret"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarList">
-                            <a href="#" class="dropdown-item listItem"> Editar Perfil </a>
+                            <a href="{{ route('editProfile') }}" class="dropdown-item listItem"> Editar Perfil </a>
                             <a class="dropdown-item listItem" href="{{ route('logout') }}"
                                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 Cerrar Sesión
