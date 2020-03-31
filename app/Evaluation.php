@@ -41,6 +41,18 @@ class Evaluation extends Model
         return $newArr;
     }
 
+    public static function generateCalendarDays ($page) {
+        $arrDays = [];  
+        for ($i = 0; $i <= 9; $i++) {
+            $day = [];
+            $dayToAdd = Carbon::now()->addDays($page*10);
+            $day['date'] = $dayToAdd->addDays($i)->format('Y-m-d');
+            $day['dayOfWeek'] = Evaluation::getDayOfWeek($day['date']);
+            array_push($arrDays, $day);
+        }
+        return $arrDays;
+    }
+
     public function course () {
         return $this->belongsTo(Course::class);
     }
