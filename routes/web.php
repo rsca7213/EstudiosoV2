@@ -50,3 +50,6 @@ Route::get('/grades/{c_id}/info', 'GradesController@info');
 
 //Calendar: View
 Route::get('/calendar/{page}', 'CalendarController@index')->name('viewCalendar');
+
+//Schedule: View
+Route::get('/schedule/view', 'SchedulesController@index')->name('viewSchedule');
