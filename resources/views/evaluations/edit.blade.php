@@ -18,7 +18,7 @@
     </li>
     <span class="navbarItem d-none d-lg-block"> | </span>
     <li class="mx-2 nav-item">
-        <a href="#" class="navbarItem"> Calendario </a>
+        <a href="{{ route('viewCalendar', ['page' => 0]) }}" class="navbarItem"> Calendario </a>
     </li>
     <span class="navbarItem d-none d-lg-block"> | </span>
     <li class="mx-2 nav-item">

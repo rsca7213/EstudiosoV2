@@ -47,3 +47,6 @@ Route::post('/grades/{c_id}/store/{ev_id}', 'GradesController@store');
 Route::patch('/grades/{c_id}/update/{ev_id}', 'GradesController@update');
 Route::delete('/grades/{C_id}/delete/{ev_id}', 'GradesController@delete');
 Route::get('/grades/{c_id}/info', 'GradesController@info');
+
+//Calendar: View
+Route::get('/calendar/{page}', 'CalendarController@index')->name('viewCalendar');
