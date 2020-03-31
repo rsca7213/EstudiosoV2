@@ -41562,13 +41562,7 @@ var render = function() {
                           ],
                           staticClass: "form-control",
                           class: _vm.passError,
-                          attrs: {
-                            id: "password",
-                            type: "password",
-                            name: "password",
-                            required: "",
-                            autocomplete: "current-password"
-                          },
+                          attrs: { type: "password" },
                           domProps: { value: _vm.pass },
                           on: {
                             input: function($event) {

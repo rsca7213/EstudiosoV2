@@ -21,7 +21,7 @@
                             </span>
                             <div class="form-group row mx-2">
                                 <label for="password" class="col-form-label text-md-right" style="font-size: 14px; font-weight: bold"> Contraseña </label>
-                                <input id="password" type="password" class="form-control" name="password" required autocomplete="current-password" v-model="pass" :class="passError">
+                                <input type="password" class="form-control" v-model="pass" :class="passError">
                                 <span class="form-text text-danger text-left" style="font-size: 0.9rem;"> <b v-text="passErrorText"> </b> </span>
                             </div>
                         </div>
