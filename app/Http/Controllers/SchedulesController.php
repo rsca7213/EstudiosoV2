@@ -20,4 +20,11 @@ class SchedulesController extends Controller
         }
         else return redirect('/login');
     }
+
+    public function edit () {
+        if(Auth::check()) {
+            return view('schedules.edit');
+        }
+        else return redirect('/login');
+    }
 }

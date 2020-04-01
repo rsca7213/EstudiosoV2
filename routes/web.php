@@ -53,3 +53,4 @@ Route::get('/calendar/{page}', 'CalendarController@index')->name('viewCalendar')
 
 //Schedule: View
 Route::get('/schedule/view', 'SchedulesController@index')->name('viewSchedule');
+Route::get('/schedule/edit', 'SchedulesController@edit')->name('editSchedule');
