@@ -97,9 +97,8 @@ export default {
                 }
             }
             this.selectedCourseName = course.name;
-            if(course.hours == null) { /* MUST BE DIFFERENT */
+            if(course.hours != null) { /* MUST BE DIFFERENT */
                 let hoursString = course.hours;
-                hoursString = "MO11-13,WE9-11,FR10-12"; /*TEMPORARY */
                 let hours = [];
                 let id = 1;
                 for (let i=0; i < hoursString.length; i++) {

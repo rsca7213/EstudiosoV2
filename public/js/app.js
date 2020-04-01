@@ -3140,12 +3140,9 @@ __webpack_require__.r(__webpack_exports__);
 
       this.selectedCourseName = course.name;
 
-      if (course.hours == null) {
+      if (course.hours != null) {
         /* MUST BE DIFFERENT */
         var hoursString = course.hours;
-        hoursString = "MO11-13,WE9-11,FR10-12";
-        /*TEMPORARY */
-
         var hours = [];
         var id = 1;
 
