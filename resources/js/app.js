@@ -22,6 +22,9 @@ Vue.component('days-left', require('./components/home/daysLeft.vue').default);
 //Components of profiles.edit.blade.php
 Vue.component('delete-profile', require('./components/profiles/deleteProfile.vue').default);
 
+//Components of schedules.edit.blade.php
+Vue.component('edit-schedule', require('./components/schedules/editSchedule.vue').default);
+
 const app = new Vue({
     el: '#app',
 });

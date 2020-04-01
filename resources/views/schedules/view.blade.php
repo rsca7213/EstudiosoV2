@@ -415,7 +415,7 @@
 
 @section('mobileFooter')
     <div class="row d-flex justify-content-center">
-        <a href="#" class="btn btn-secondary"> Regresar Arriba </a>
+        <a href="{{ route('home') }}" class="btn btn-secondary"> Regresar Al Menú Principal </a>
     </div>
     <div class="row d-flex justify-content-center mt-4">
         ESTUDIOSO

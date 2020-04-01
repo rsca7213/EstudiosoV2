@@ -1,17 +1,7 @@
 @extends('layouts.appLayout')
 
 @section('head')
-    <title> Estudioso | Horario </title>
-    <style>
-        table.table-bordered > tbody > tr > td{
-            border:1px solid #A0A0A0;
-        }
-        tr {
-            line-height: 12px;
-            min-height: 12px;
-            height: 12px;
-        }
-    </style>
+    <title> Estudioso | Editar Horario </title>
 @endsection
 
 @section('nav')
@@ -38,7 +28,15 @@
 
 @section('content')
     <div class="container-fluid">
-        edit schedule
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-9 col-xl-7 d-none d-lg-block">
+                <div class="card shadow-lg">
+                    <div class="card-header bg-dark text-light text-center h4">
+                        Editar Horario
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
 
