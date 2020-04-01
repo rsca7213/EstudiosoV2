@@ -27,4 +27,13 @@ class SchedulesController extends Controller
         }
         else return redirect('/login');
     }
+
+    public function listCourses () {
+        if(Auth::check()) {
+            $user = auth()->user();
+            $courses = $user->courses()->where('user_id', $user->id)->get();
+            return response($courses, 200);
+        }
+        else return response('Unauthorized', 401);
+    }
 }
