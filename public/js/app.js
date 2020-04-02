@@ -3545,16 +3545,55 @@ __webpack_require__.r(__webpack_exports__);
     deleteHours: function deleteHours(slot_id) {
       console.log('%cParent: delete request received, slot: ' + slot_id, "color: orange");
       console.log(this.selectedCourse, this.selectedCourseName);
+      console.log("%cParent: Processing Schedule string...", "color: orange");
+      var newString = [];
+      var arrHours = this.selectedCourseHours;
+
+      for (var i = 0; i < arrHours.length; i++) {
+        if (slot_id != arrHours[i].id) {
+          if (newString != "") newString += ",";
+          newString += arrHours[i].day + arrHours[i].start + "-" + arrHours[i].end;
+        }
+      }
+
+      console.log("%cParent: String has been processed.\nString: " + newString, "color: orange");
     },
     editHours: function editHours(data) {
       console.log('%cParent: edit request received, data:', "color: orange");
       console.log(data);
       console.log(this.selectedCourse, this.selectedCourseName);
+      var newString = [];
+      var arrHours = this.selectedCourseHours;
+
+      for (var i = 0; i < arrHours.length; i++) {
+        if (data.slot_id != arrHours[i].id) {
+          if (newString != "") newString += ",";
+          newString += arrHours[i].day + arrHours[i].start + "-" + arrHours[i].end;
+        } else {
+          console.log('a');
+          if (newString != "") newString += ",";
+          newString += data.day + data.start + "-" + data.end;
+        }
+      }
+
+      console.log("%cParent: String has been processed.\nString: " + newString, "color: orange");
     },
     addHours: function addHours(data) {
       console.log('%cParent: add request received, data:', "color: orange");
       console.log(data);
       console.log(this.selectedCourse, this.selectedCourseName);
+      console.log("%cParent: Processing Schedule string...", "color: orange");
+      var newString = "";
+      var arrHours = this.selectedCourseHours;
+      if (arrHours === null) newString += data.day + data.start + "-" + data.end;else {
+        for (var i = 0; i < arrHours.length; i++) {
+          if (newString != "") newString += ",";
+          newString += arrHours[i].day + arrHours[i].start + "-" + arrHours[i].end;
+        }
+
+        newString += "," + data.day + data.start + "-" + data.end;
+      }
+      console.log("%cParent: String has been processed.\nString: " + newString, "color: orange");
     }
   },
   data: function data() {
