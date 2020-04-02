@@ -40,11 +40,14 @@
                             <span class="d-block d-md-none"> {{ slot.completeDay[0] + slot.completeDay[1] + slot.completeDay[2] }} </span>
                         </td>
                         <td v-text="slot.formatStart + ' a ' + slot.formatEnd"></td>
-                        <td></td>
+                        <td>
+                            <edit-hours :image="imageedit" :slot_id="slot.id" :slot_day="slot.day" :slot_start="slot.start" :slot_end="slot.end" :c_id="selectedCourse" @edit="editHours"> </edit-hours>
+                            <delete-hours :image="imagedelete" :slot_id="slot.id" :slot_day="slot.completeDay" :slot_start="slot.formatStart" :slot_end="slot.formatEnd" :c_id="selectedCourse" @delete="deleteHours"> </delete-hours>
+                        </td>
                     </tr>
                 </tbody>
             </table>
-            <div class="text-right col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 px-3"> <button class="btn btn-primary"> Agregar Horas </button> </div>
+            <div class="text-right col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 px-3"> <add-hours @add="addHours"></add-hours> </div>
         </span>
         <hr>
     </span>
@@ -140,11 +143,27 @@ export default {
                 this.selectedCourseHours = hours;
             }
             else this.selectedCourseHours = null;
-        }  
+        },
+        deleteHours(slot_id) {
+            console.log('%cParent: delete request received, slot: ' + slot_id, "color: orange");
+            console.log(this.selectedCourse, this.selectedCourseName);
+        },
+        editHours(data) {
+            console.log('%cParent: edit request received, data:', "color: orange");
+            console.log(data);
+            console.log(this.selectedCourse, this.selectedCourseName);
+        },
+        addHours(data) {
+            console.log('%cParent: add request received, data:', "color: orange");
+            console.log(data);
+            console.log(this.selectedCourse, this.selectedCourseName);
+        }
     },
 
     data() {
         return {
+            imagedelete: this.deleteimg,
+            imageedit: this.editimg,
             courses: null,
             courseListError: "",
             courseListErrorText: "",

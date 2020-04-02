@@ -24,6 +24,9 @@ Vue.component('delete-profile', require('./components/profiles/deleteProfile.vue
 
 //Components of schedules.edit.blade.php
 Vue.component('edit-schedule', require('./components/schedules/editSchedule.vue').default);
+Vue.component('delete-hours', require('./components/schedules/deleteHours.vue').default);
+Vue.component('edit-hours', require('./components/schedules/editHours.vue').default);
+Vue.component('add-hours', require('./components/schedules/addHours.vue').default);
 
 const app = new Vue({
     el: '#app',

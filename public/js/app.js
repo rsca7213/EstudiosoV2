@@ -3032,6 +3032,327 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/addHours.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/schedules/addHours.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      mId: "createModal",
+      mTg: "#createModal",
+      dayInput: null,
+      startInput: null,
+      endInput: null,
+      submitError: ""
+    };
+  },
+  methods: {
+    resetInputs: function resetInputs() {
+      this.dayInput = null;
+      this.startInput = null;
+      this.endInput = null;
+      this.submitError = "";
+    },
+    submit: function submit() {
+      var data = {
+        day: this.dayInput,
+        start: this.startInput,
+        end: this.endInput
+      };
+      this.$emit('add', data);
+    }
+  },
+  computed: {
+    computedBtn: function computedBtn() {
+      if (parseInt(this.endInput) <= parseInt(this.startInput)) {
+        this.submitError = "submitError";
+        return "btn-danger";
+      }
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/deleteHours.vue?vue&type=script&lang=js&":
+/*!********************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/schedules/deleteHours.vue?vue&type=script&lang=js& ***!
+  \********************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["image", "slot_id", "slot_day", "slot_start", "slot_end", "c_id"],
+  data: function data() {
+    return {
+      mId: "deleteModal" + this.slot_id,
+      mTg: "#deleteModal" + this.slot_id
+    };
+  },
+  methods: {
+    submit: function submit() {
+      this.$emit('delete', this.slot_id);
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/editHours.vue?vue&type=script&lang=js&":
+/*!******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/schedules/editHours.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ["image", "slot_id", "slot_day", "slot_start", "slot_end", "c_id"],
+  data: function data() {
+    return {
+      mId: "editModal" + this.slot_id,
+      mTg: "#editModal" + this.slot_id,
+      dayInput: this.slot_day,
+      startInput: this.slot_start,
+      endInput: this.slot_end,
+      submitError: ""
+    };
+  },
+  methods: {
+    resetInputs: function resetInputs() {
+      this.dayInput = this.slot_day;
+      this.startInput = this.slot_start;
+      this.endInput = this.slot_end;
+      this.submitError = "";
+    },
+    submit: function submit() {
+      var data = {
+        day: this.dayInput,
+        start: this.startInput,
+        end: this.endInput,
+        slot_id: this.slot_id
+      };
+      this.$emit('edit', data);
+    }
+  },
+  computed: {
+    computedBtn: function computedBtn() {
+      if (parseInt(this.endInput) <= parseInt(this.startInput)) {
+        this.submitError = "submitError";
+        return "btn-danger";
+      }
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/editSchedule.vue?vue&type=script&lang=js&":
 /*!*********************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/schedules/editSchedule.vue?vue&type=script&lang=js& ***!
@@ -3041,6 +3362,9 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
 //
 //
 //
@@ -3217,10 +3541,26 @@ __webpack_require__.r(__webpack_exports__);
 
         this.selectedCourseHours = hours;
       } else this.selectedCourseHours = null;
+    },
+    deleteHours: function deleteHours(slot_id) {
+      console.log('%cParent: delete request received, slot: ' + slot_id, "color: orange");
+      console.log(this.selectedCourse, this.selectedCourseName);
+    },
+    editHours: function editHours(data) {
+      console.log('%cParent: edit request received, data:', "color: orange");
+      console.log(data);
+      console.log(this.selectedCourse, this.selectedCourseName);
+    },
+    addHours: function addHours(data) {
+      console.log('%cParent: add request received, data:', "color: orange");
+      console.log(data);
+      console.log(this.selectedCourse, this.selectedCourseName);
     }
   },
   data: function data() {
     return {
+      imagedelete: this.deleteimg,
+      imageedit: this.editimg,
       courses: null,
       courseListError: "",
       courseListErrorText: "",
@@ -41903,6 +42243,1004 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/addHours.vue?vue&type=template&id=b8399828&scoped=true&":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/schedules/addHours.vue?vue&type=template&id=b8399828&scoped=true& ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("span", { staticClass: "editHours" }, [
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-primary",
+        attrs: { "data-toggle": "modal", "data-target": _vm.mTg }
+      },
+      [_vm._v(" Agregar Horas ")]
+    ),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: { tabindex: "-1", role: "dialog", id: _vm.mId }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered modal-sm pr-3",
+            attrs: { role: "document" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "modal-content",
+                class: _vm.submitError,
+                staticStyle: { "background-color": "whitesmoke" }
+              },
+              [
+                _c("div", { staticClass: "modal-header" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "close",
+                      attrs: { type: "button", "data-dismiss": "modal" },
+                      on: { click: _vm.resetInputs }
+                    },
+                    [_c("span", [_vm._v("×")])]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  {
+                    attrs: { action: "#" },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.submit($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("div", { staticClass: "form-group row mx-1" }, [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.dayInput,
+                                expression: "dayInput"
+                              }
+                            ],
+                            staticClass: "col-12 form-control",
+                            attrs: { id: "day", name: "day", required: "" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.dayInput = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "MO" } }, [
+                              _vm._v("Lunes")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "TU" } }, [
+                              _vm._v("Martes")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "WE" } }, [
+                              _vm._v("Miercoles")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "TH" } }, [
+                              _vm._v("Jueves")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "FR" } }, [
+                              _vm._v("Viernes")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SA" } }, [
+                              _vm._v("Sabado")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SU" } }, [
+                              _vm._v("Domingo")
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row mx-1" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.startInput,
+                                expression: "startInput"
+                              }
+                            ],
+                            staticClass: "col-12 form-control",
+                            attrs: { id: "start", name: "start", required: "" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.startInput = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "7" } }, [
+                              _vm._v(" 7 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "8" } }, [
+                              _vm._v(" 8 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "9" } }, [
+                              _vm._v(" 9 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "10" } }, [
+                              _vm._v(" 10 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "11" } }, [
+                              _vm._v(" 11 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "12" } }, [
+                              _vm._v(" 12 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "13" } }, [
+                              _vm._v(" 1 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "14" } }, [
+                              _vm._v(" 2 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "15" } }, [
+                              _vm._v(" 3 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "16" } }, [
+                              _vm._v(" 4 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "17" } }, [
+                              _vm._v(" 5 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "18" } }, [
+                              _vm._v(" 6 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "19" } }, [
+                              _vm._v(" 7 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "20" } }, [
+                              _vm._v(" 8 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "21" } }, [
+                              _vm._v(" 9 pm ")
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row mx-1" }, [
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.endInput,
+                                expression: "endInput"
+                              }
+                            ],
+                            staticClass: "col-12 form-control",
+                            attrs: { id: "end", name: "end", required: "" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.endInput = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "7" } }, [
+                              _vm._v(" 7 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "8" } }, [
+                              _vm._v(" 8 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "9" } }, [
+                              _vm._v(" 9 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "10" } }, [
+                              _vm._v(" 10 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "11" } }, [
+                              _vm._v(" 11 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "12" } }, [
+                              _vm._v(" 12 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "13" } }, [
+                              _vm._v(" 1 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "14" } }, [
+                              _vm._v(" 2 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "15" } }, [
+                              _vm._v(" 3 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "16" } }, [
+                              _vm._v(" 4 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "17" } }, [
+                              _vm._v(" 5 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "18" } }, [
+                              _vm._v(" 6 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "19" } }, [
+                              _vm._v(" 7 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "20" } }, [
+                              _vm._v(" 8 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "21" } }, [
+                              _vm._v(" 9 pm ")
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _vm.computedBtn === "btn-danger"
+                        ? _c(
+                            "span",
+                            { staticClass: "text-danger text-center" },
+                            [
+                              _c("b", [
+                                _vm._v(
+                                  " La hora final debe ser mayor a la hora inicial. "
+                                )
+                              ])
+                            ]
+                          )
+                        : _vm._e()
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-footer" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-secondary",
+                          attrs: { type: "button", "data-dismiss": "modal" },
+                          on: { click: _vm.resetInputs }
+                        },
+                        [_vm._v(" Cancelar ")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "btn btn-primary",
+                        class: _vm.computedBtn,
+                        attrs: {
+                          type: "submit",
+                          value: "Agregar",
+                          disabled:
+                            _vm.computedBtn === "btn-danger" ? "disabled" : null
+                        }
+                      })
+                    ])
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "modal-title" }, [
+      _c("b", [_vm._v("Agregar Horas")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "col-12 text-left mx-0 px-0", attrs: { for: "day" } },
+      [_c("b", [_vm._v(" Día ")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "col-12 text-left mx-0 px-0", attrs: { for: "start" } },
+      [_c("b", [_vm._v(" Hora Inicial ")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "col-12 text-left mx-0 px-0", attrs: { for: "end" } },
+      [_c("b", [_vm._v(" Hora Final ")])]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/deleteHours.vue?vue&type=template&id=5d745596&scoped=true&":
+/*!************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/schedules/deleteHours.vue?vue&type=template&id=5d745596&scoped=true& ***!
+  \************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("span", { staticClass: "deleteHours" }, [
+    _c("img", {
+      staticStyle: { width: "1.2rem", cursor: "pointer" },
+      attrs: {
+        src: this.image,
+        alt: "borrar",
+        "data-toggle": "modal",
+        "data-target": _vm.mTg
+      }
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: { tabindex: "-1", role: "dialog", id: _vm.mId }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered modal-sm pr-3",
+            attrs: { role: "document" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "modal-content",
+                staticStyle: { "background-color": "whitesmoke" }
+              },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  {
+                    attrs: { action: "#" },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.submit($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("div", { staticClass: "form-group" }, [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "h5" }, [
+                          _c("b", [_vm._v(" Día: ")]),
+                          _vm._v(" " + _vm._s(this.slot_day) + "  ")
+                        ]),
+                        _vm._v(" "),
+                        _c("br"),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "h5" }, [
+                          _c("b", [_vm._v(" Horas: ")]),
+                          _vm._v(
+                            " " +
+                              _vm._s(this.slot_start) +
+                              " a " +
+                              _vm._s(this.slot_end)
+                          )
+                        ])
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm._m(2)
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h5", { staticClass: "modal-title" }, [
+        _c("b", [_vm._v("Borrar Horas")])
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("span", [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "h5" }, [
+      _vm._v(" ¿Está seguro que desea borrar "),
+      _c("br"),
+      _vm._v(" \n                                    las horas? "),
+      _c("br"),
+      _vm._v(" "),
+      _c("br")
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c(
+        "button",
+        {
+          staticClass: "btn btn-secondary",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_vm._v(" Cancelar ")]
+      ),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "btn btn-danger",
+        attrs: { type: "submit", value: "Borrar" }
+      })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/editHours.vue?vue&type=template&id=129bd697&scoped=true&":
+/*!**********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/schedules/editHours.vue?vue&type=template&id=129bd697&scoped=true& ***!
+  \**********************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("span", { staticClass: "editHours" }, [
+    _c("img", {
+      staticStyle: { width: "1.2rem", cursor: "pointer" },
+      attrs: {
+        src: this.image,
+        alt: "editar",
+        "data-toggle": "modal",
+        "data-target": _vm.mTg
+      }
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade",
+        attrs: { tabindex: "-1", role: "dialog", id: _vm.mId }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered modal-sm pr-3",
+            attrs: { role: "document" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "modal-content",
+                class: _vm.submitError,
+                staticStyle: { "background-color": "whitesmoke" }
+              },
+              [
+                _c("div", { staticClass: "modal-header" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass: "close",
+                      attrs: { type: "button", "data-dismiss": "modal" },
+                      on: { click: _vm.resetInputs }
+                    },
+                    [_c("span", [_vm._v("×")])]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  {
+                    attrs: { action: "#" },
+                    on: {
+                      submit: function($event) {
+                        $event.preventDefault()
+                        return _vm.submit($event)
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "modal-body" }, [
+                      _c("div", { staticClass: "form-group row mx-1" }, [
+                        _vm._m(1),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.dayInput,
+                                expression: "dayInput"
+                              }
+                            ],
+                            staticClass: "col-12 form-control",
+                            attrs: { id: "day", name: "day" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.dayInput = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "MO" } }, [
+                              _vm._v("Lunes")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "TU" } }, [
+                              _vm._v("Martes")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "WE" } }, [
+                              _vm._v("Miercoles")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "TH" } }, [
+                              _vm._v("Jueves")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "FR" } }, [
+                              _vm._v("Viernes")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SA" } }, [
+                              _vm._v("Sabado")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "SU" } }, [
+                              _vm._v("Domingo")
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row mx-1" }, [
+                        _vm._m(2),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.startInput,
+                                expression: "startInput"
+                              }
+                            ],
+                            staticClass: "col-12 form-control",
+                            attrs: { id: "start", name: "start" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.startInput = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "7" } }, [
+                              _vm._v(" 7 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "8" } }, [
+                              _vm._v(" 8 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "9" } }, [
+                              _vm._v(" 9 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "10" } }, [
+                              _vm._v(" 10 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "11" } }, [
+                              _vm._v(" 11 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "12" } }, [
+                              _vm._v(" 12 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "13" } }, [
+                              _vm._v(" 1 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "14" } }, [
+                              _vm._v(" 2 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "15" } }, [
+                              _vm._v(" 3 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "16" } }, [
+                              _vm._v(" 4 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "17" } }, [
+                              _vm._v(" 5 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "18" } }, [
+                              _vm._v(" 6 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "19" } }, [
+                              _vm._v(" 7 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "20" } }, [
+                              _vm._v(" 8 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "21" } }, [
+                              _vm._v(" 9 pm ")
+                            ])
+                          ]
+                        )
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "form-group row mx-1" }, [
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _c(
+                          "select",
+                          {
+                            directives: [
+                              {
+                                name: "model",
+                                rawName: "v-model",
+                                value: _vm.endInput,
+                                expression: "endInput"
+                              }
+                            ],
+                            staticClass: "col-12 form-control",
+                            attrs: { id: "end", name: "end" },
+                            on: {
+                              change: function($event) {
+                                var $$selectedVal = Array.prototype.filter
+                                  .call($event.target.options, function(o) {
+                                    return o.selected
+                                  })
+                                  .map(function(o) {
+                                    var val = "_value" in o ? o._value : o.value
+                                    return val
+                                  })
+                                _vm.endInput = $event.target.multiple
+                                  ? $$selectedVal
+                                  : $$selectedVal[0]
+                              }
+                            }
+                          },
+                          [
+                            _c("option", { attrs: { value: "7" } }, [
+                              _vm._v(" 7 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "8" } }, [
+                              _vm._v(" 8 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "9" } }, [
+                              _vm._v(" 9 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "10" } }, [
+                              _vm._v(" 10 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "11" } }, [
+                              _vm._v(" 11 am ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "12" } }, [
+                              _vm._v(" 12 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "13" } }, [
+                              _vm._v(" 1 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "14" } }, [
+                              _vm._v(" 2 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "15" } }, [
+                              _vm._v(" 3 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "16" } }, [
+                              _vm._v(" 4 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "17" } }, [
+                              _vm._v(" 5 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "18" } }, [
+                              _vm._v(" 6 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "19" } }, [
+                              _vm._v(" 7 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "20" } }, [
+                              _vm._v(" 8 pm ")
+                            ]),
+                            _vm._v(" "),
+                            _c("option", { attrs: { value: "21" } }, [
+                              _vm._v(" 9 pm ")
+                            ])
+                          ]
+                        )
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _vm.computedBtn === "btn-danger"
+                      ? _c("span", { staticClass: "text-danger" }, [
+                          _c("b", [
+                            _vm._v(
+                              " La hora final debe ser mayor a la hora inicial. "
+                            )
+                          ])
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "modal-footer" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-secondary",
+                          attrs: { type: "button", "data-dismiss": "modal" },
+                          on: { click: _vm.resetInputs }
+                        },
+                        [_vm._v(" Cancelar ")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "btn btn-primary",
+                        class: _vm.computedBtn,
+                        attrs: {
+                          type: "submit",
+                          value: "Editar",
+                          disabled:
+                            _vm.computedBtn === "btn-danger" ? "disabled" : null
+                        }
+                      })
+                    ])
+                  ]
+                )
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("h5", { staticClass: "modal-title" }, [
+      _c("b", [_vm._v("Editar Horas")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "col-12 text-left mx-0 px-0", attrs: { for: "day" } },
+      [_c("b", [_vm._v(" Día ")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "col-12 text-left mx-0 px-0", attrs: { for: "start" } },
+      [_c("b", [_vm._v(" Hora Inicial ")])]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "label",
+      { staticClass: "col-12 text-left mx-0 px-0", attrs: { for: "end" } },
+      [_c("b", [_vm._v(" Hora Final ")])]
+    )
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/editSchedule.vue?vue&type=template&id=73660f3f&scoped=true&":
 /*!*************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/schedules/editSchedule.vue?vue&type=template&id=73660f3f&scoped=true& ***!
@@ -42096,7 +43434,35 @@ var render = function() {
                         }
                       }),
                       _vm._v(" "),
-                      _c("td")
+                      _c(
+                        "td",
+                        [
+                          _c("edit-hours", {
+                            attrs: {
+                              image: _vm.imageedit,
+                              slot_id: slot.id,
+                              slot_day: slot.day,
+                              slot_start: slot.start,
+                              slot_end: slot.end,
+                              c_id: _vm.selectedCourse
+                            },
+                            on: { edit: _vm.editHours }
+                          }),
+                          _vm._v(" "),
+                          _c("delete-hours", {
+                            attrs: {
+                              image: _vm.imagedelete,
+                              slot_id: slot.id,
+                              slot_day: slot.completeDay,
+                              slot_start: slot.formatStart,
+                              slot_end: slot.formatEnd,
+                              c_id: _vm.selectedCourse
+                            },
+                            on: { delete: _vm.deleteHours }
+                          })
+                        ],
+                        1
+                      )
                     ])
                   })
                 ],
@@ -42105,7 +43471,15 @@ var render = function() {
             ]
           ),
           _vm._v(" "),
-          _vm._m(1)
+          _c(
+            "div",
+            {
+              staticClass:
+                "text-right col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 px-3"
+            },
+            [_c("add-hours", { on: { add: _vm.addHours } })],
+            1
+          )
         ]),
     _vm._v(" "),
     _c("hr")
@@ -42131,23 +43505,6 @@ var staticRenderFns = [
         ])
       ])
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "text-right col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 px-3"
-      },
-      [
-        _c("button", { staticClass: "btn btn-primary" }, [
-          _vm._v(" Agregar Horas ")
-        ])
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -54341,6 +55698,9 @@ Vue.component('days-left', __webpack_require__(/*! ./components/home/daysLeft.vu
 Vue.component('delete-profile', __webpack_require__(/*! ./components/profiles/deleteProfile.vue */ "./resources/js/components/profiles/deleteProfile.vue")["default"]); //Components of schedules.edit.blade.php
 
 Vue.component('edit-schedule', __webpack_require__(/*! ./components/schedules/editSchedule.vue */ "./resources/js/components/schedules/editSchedule.vue")["default"]);
+Vue.component('delete-hours', __webpack_require__(/*! ./components/schedules/deleteHours.vue */ "./resources/js/components/schedules/deleteHours.vue")["default"]);
+Vue.component('edit-hours', __webpack_require__(/*! ./components/schedules/editHours.vue */ "./resources/js/components/schedules/editHours.vue")["default"]);
+Vue.component('add-hours', __webpack_require__(/*! ./components/schedules/addHours.vue */ "./resources/js/components/schedules/addHours.vue")["default"]);
 var app = new Vue({
   el: '#app'
 });
@@ -55290,6 +56650,213 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_deleteProfile_vue_vue_type_template_id_5fe15ba4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_deleteProfile_vue_vue_type_template_id_5fe15ba4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/schedules/addHours.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/schedules/addHours.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _addHours_vue_vue_type_template_id_b8399828_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addHours.vue?vue&type=template&id=b8399828&scoped=true& */ "./resources/js/components/schedules/addHours.vue?vue&type=template&id=b8399828&scoped=true&");
+/* harmony import */ var _addHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addHours.vue?vue&type=script&lang=js& */ "./resources/js/components/schedules/addHours.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _addHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _addHours_vue_vue_type_template_id_b8399828_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _addHours_vue_vue_type_template_id_b8399828_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "b8399828",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/schedules/addHours.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/schedules/addHours.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/schedules/addHours.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_addHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./addHours.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/addHours.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_addHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/schedules/addHours.vue?vue&type=template&id=b8399828&scoped=true&":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/components/schedules/addHours.vue?vue&type=template&id=b8399828&scoped=true& ***!
+  \***************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_addHours_vue_vue_type_template_id_b8399828_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./addHours.vue?vue&type=template&id=b8399828&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/addHours.vue?vue&type=template&id=b8399828&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_addHours_vue_vue_type_template_id_b8399828_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_addHours_vue_vue_type_template_id_b8399828_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/schedules/deleteHours.vue":
+/*!***********************************************************!*\
+  !*** ./resources/js/components/schedules/deleteHours.vue ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _deleteHours_vue_vue_type_template_id_5d745596_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./deleteHours.vue?vue&type=template&id=5d745596&scoped=true& */ "./resources/js/components/schedules/deleteHours.vue?vue&type=template&id=5d745596&scoped=true&");
+/* harmony import */ var _deleteHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./deleteHours.vue?vue&type=script&lang=js& */ "./resources/js/components/schedules/deleteHours.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _deleteHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _deleteHours_vue_vue_type_template_id_5d745596_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _deleteHours_vue_vue_type_template_id_5d745596_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "5d745596",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/schedules/deleteHours.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/schedules/deleteHours.vue?vue&type=script&lang=js&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/schedules/deleteHours.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_deleteHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./deleteHours.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/deleteHours.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_deleteHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/schedules/deleteHours.vue?vue&type=template&id=5d745596&scoped=true&":
+/*!******************************************************************************************************!*\
+  !*** ./resources/js/components/schedules/deleteHours.vue?vue&type=template&id=5d745596&scoped=true& ***!
+  \******************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_deleteHours_vue_vue_type_template_id_5d745596_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./deleteHours.vue?vue&type=template&id=5d745596&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/deleteHours.vue?vue&type=template&id=5d745596&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_deleteHours_vue_vue_type_template_id_5d745596_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_deleteHours_vue_vue_type_template_id_5d745596_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/schedules/editHours.vue":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/schedules/editHours.vue ***!
+  \*********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _editHours_vue_vue_type_template_id_129bd697_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./editHours.vue?vue&type=template&id=129bd697&scoped=true& */ "./resources/js/components/schedules/editHours.vue?vue&type=template&id=129bd697&scoped=true&");
+/* harmony import */ var _editHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./editHours.vue?vue&type=script&lang=js& */ "./resources/js/components/schedules/editHours.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _editHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _editHours_vue_vue_type_template_id_129bd697_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _editHours_vue_vue_type_template_id_129bd697_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  "129bd697",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/schedules/editHours.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/schedules/editHours.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************!*\
+  !*** ./resources/js/components/schedules/editHours.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./editHours.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/editHours.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_editHours_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/schedules/editHours.vue?vue&type=template&id=129bd697&scoped=true&":
+/*!****************************************************************************************************!*\
+  !*** ./resources/js/components/schedules/editHours.vue?vue&type=template&id=129bd697&scoped=true& ***!
+  \****************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_editHours_vue_vue_type_template_id_129bd697_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./editHours.vue?vue&type=template&id=129bd697&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/schedules/editHours.vue?vue&type=template&id=129bd697&scoped=true&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_editHours_vue_vue_type_template_id_129bd697_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_editHours_vue_vue_type_template_id_129bd697_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 
