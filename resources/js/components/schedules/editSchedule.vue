@@ -17,7 +17,8 @@
             <h5> Selecciona un curso para continuar. </h5>
         </span>
         <span v-else> 
-            <table class="table border border-info table-striped shadow-lg col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2"> 
+            <span class="text-primary text-center my-4"> <b v-text="actionText" :class="actionTextClass"> </b> </span>
+            <table class="table border border-info table-striped shadow-lg col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 my-4"> 
                 <thead class="bg-primary text-light h5">
                     <tr>
                         <th colspan="3" v-text="selectedCourseName"> </th>
@@ -88,6 +89,8 @@ export default {
             this.courseListError = "";
             this.courseListErrorText = "";
             this.courseListDisabled = null;
+            this.actionText = "";
+            this.actionTextClass = "";
         },
         selectCourse() {
             this.resetErrors();
@@ -146,6 +149,8 @@ export default {
         },
 
         deleteHours(slot_id) {
+            this.actionText = "Borrando horas, por favor espere...";
+            this.actionTextClass = "";
             console.log('%cParent: delete request received, slot: ' + slot_id, "color: orange");
             console.log(this.selectedCourse, this.selectedCourseName);
             console.log("%cParent: Processing Schedule string...", "color: orange");
@@ -157,10 +162,32 @@ export default {
                     newString += arrHours[i].day + arrHours[i].start + "-" + arrHours[i].end;
                 }
             }
-            console.log("%cParent: String has been processed.\nString: " + newString, "color: orange");
+            newString += ",";
+            console.log("%cParent: String has been processed, calling Axios.\nString: " + newString, "color: orange");
+            axios.patch('/schedule/edit/courses/delete/' + this.selectedCourse, {
+                'hours': newString
+            })
+            .then(response => {
+                console.log("%cAxios: Request succesful.", "color: lightgreen");
+                if(response.status = 200) {
+                    location.replace('/schedule/edit/index/1');
+                }
+            })
+            .catch(errors => {
+                console.log("%cAxios: Request failed.", "color: #FCCCBB");
+                if(errors.response.status === 401) {
+                    location.replace('/login');
+                }
+                else {
+                    this.actionTextClass = "text-danger";
+                    this.actionText = "¡Ha ocurrido un error! Por favor intentalo más tarde.";
+                }
+            });
         },
 
         editHours(data) {
+            this.actionText = "Editando horas, por favor espere...";
+            this.actionTextClass = "";
             console.log('%cParent: edit request received, data:', "color: orange");
             console.log(data);
             console.log(this.selectedCourse, this.selectedCourseName);
@@ -171,31 +198,75 @@ export default {
                     if(newString != "") newString += ",";
                     newString += arrHours[i].day + arrHours[i].start + "-" + arrHours[i].end;
                 }
-                else {
-                    console.log('a');
-                    if(newString != "") newString += ",";
-                    newString += data.day + data.start + "-" + data.end;
-                }
             }
-            console.log("%cParent: String has been processed.\nString: " + newString, "color: orange");
+            newString += ",";
+            console.log("%cParent: String has been processed, calling Axios.\nString: " + newString + "\nnewValue: " + data.day + data.start + "-" + data.end + ",", "color: orange");
+            axios.patch('/schedule/edit/courses/edit/' + this.selectedCourse, {
+                'hours': newString,
+                'newValue': data.day + data.start + "-" + data.end + ","
+            })
+            .then(response => {
+                console.log("%cAxios: Request succesful.", "color: lightgreen");
+                if(response.status = 200) {
+                    location.replace('/schedule/edit/index/1');
+                }
+            })
+            .catch(errors => {
+                console.log("%cAxios: Request failed.", "color: #FCCCBB");
+                if(errors.response.status === 401) {
+                    location.replace('/login');
+                }
+                else if(errors.response.data === "self: error") {
+                    this.actionTextClass = "text-danger";
+                    this.actionText = "¡Error! Hay un conflicto de horas en este curso con las horas introducidas.";
+                }
+                else if(errors.response.data === "notself: error") {
+                    this.actionTextClass = "text-danger";
+                    this.actionText = "¡Error! Hay un conflicto de horas en otro curso con las horas introducidas.";
+                }
+                else {
+                    this.actionTextClass = "text-danger";
+                    this.actionText = "¡Ha ocurrido un error! Por favor intentalo más tarde.";
+                }
+            });
         },
         
         addHours(data) {
+            this.actionText = "Creando horas, por favor espere...";
+            this.actionTextClass = "";
             console.log('%cParent: add request received, data:', "color: orange");
             console.log(data);
             console.log(this.selectedCourse, this.selectedCourseName);
             console.log("%cParent: Processing Schedule string...", "color: orange");
-            let newString = "";
-            let arrHours = this.selectedCourseHours;
-            if(arrHours === null) newString += data.day + data.start + "-" + data.end;
-            else {
-                for (let i=0; i<arrHours.length; i++) {
-                    if(newString != "") newString += ",";
-                    newString += arrHours[i].day + arrHours[i].start + "-" + arrHours[i].end;
+            let newString = data.day + data.start + "-" + data.end + ",";
+            console.log("%cParent: String has been processed, calling Axios.\nString: " + newString, "color: orange");
+            axios.patch('/schedule/edit/courses/create/' + this.selectedCourse, {
+                'hours': newString
+            })
+            .then(response => {
+                console.log("%cAxios: Request succesful.", "color: lightgreen");
+                if(response.status = 200) {
+                    location.replace('/schedule/edit/index/1');
                 }
-                newString += "," + data.day + data.start + "-" + data.end;
-            }
-            console.log("%cParent: String has been processed.\nString: " + newString, "color: orange");
+            })
+            .catch(errors => {
+                console.log("%cAxios: Request failed.", "color: #FCCCBB");
+                if(errors.response.status === 401) {
+                    location.replace('/login');
+                }
+                else if(errors.response.data === "self: error") {
+                    this.actionTextClass = "text-danger";
+                    this.actionText = "¡Error! Hay un conflicto de horas en este curso con las horas introducidas.";
+                }
+                else if(errors.response.data === "notself: error") {
+                    this.actionTextClass = "text-danger";
+                    this.actionText = "¡Error! Hay un conflicto de horas en otro curso con las horas introducidas.";
+                }
+                else {
+                    this.actionTextClass = "text-danger";
+                    this.actionText = "¡Ha ocurrido un error! Por favor intentalo más tarde.";
+                }
+            });
         }
     },
 
@@ -210,7 +281,9 @@ export default {
             courseListDisabled: null,
             loadingText: " (Cargando)",
             selectedCourseName: "",
-            selectedCourseHours: []
+            selectedCourseHours: [],
+            actionText: "",
+            actionTextClass: ""
         }
     }
 }

@@ -3122,6 +3122,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -3146,6 +3147,7 @@ __webpack_require__.r(__webpack_exports__);
         start: this.startInput,
         end: this.endInput
       };
+      document.getElementById('closeAddModal').click();
       this.$emit('add', data);
     }
   },
@@ -3205,6 +3207,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["image", "slot_id", "slot_day", "slot_start", "slot_end", "c_id"],
   data: function data() {
@@ -3215,6 +3218,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     submit: function submit() {
+      document.getElementById('closeDeleteModal' + this.slot_id).click();
       this.$emit('delete', this.slot_id);
     }
   }
@@ -3231,6 +3235,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -3338,6 +3343,7 @@ __webpack_require__.r(__webpack_exports__);
         end: this.endInput,
         slot_id: this.slot_id
       };
+      document.getElementById('closeEditModal' + this.slot_id).click();
       this.$emit('edit', data);
     }
   },
@@ -3362,6 +3368,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
 //
 //
 //
@@ -3449,6 +3456,8 @@ __webpack_require__.r(__webpack_exports__);
       this.courseListError = "";
       this.courseListErrorText = "";
       this.courseListDisabled = null;
+      this.actionText = "";
+      this.actionTextClass = "";
     },
     selectCourse: function selectCourse() {
       this.resetErrors();
@@ -3543,6 +3552,10 @@ __webpack_require__.r(__webpack_exports__);
       } else this.selectedCourseHours = null;
     },
     deleteHours: function deleteHours(slot_id) {
+      var _this2 = this;
+
+      this.actionText = "Borrando horas, por favor espere...";
+      this.actionTextClass = "";
       console.log('%cParent: delete request received, slot: ' + slot_id, "color: orange");
       console.log(this.selectedCourse, this.selectedCourseName);
       console.log("%cParent: Processing Schedule string...", "color: orange");
@@ -3556,9 +3569,32 @@ __webpack_require__.r(__webpack_exports__);
         }
       }
 
-      console.log("%cParent: String has been processed.\nString: " + newString, "color: orange");
+      newString += ",";
+      console.log("%cParent: String has been processed, calling Axios.\nString: " + newString, "color: orange");
+      axios.patch('/schedule/edit/courses/delete/' + this.selectedCourse, {
+        'hours': newString
+      }).then(function (response) {
+        console.log("%cAxios: Request succesful.", "color: lightgreen");
+
+        if (response.status = 200) {
+          location.replace('/schedule/edit/index/1');
+        }
+      })["catch"](function (errors) {
+        console.log("%cAxios: Request failed.", "color: #FCCCBB");
+
+        if (errors.response.status === 401) {
+          location.replace('/login');
+        } else {
+          _this2.actionTextClass = "text-danger";
+          _this2.actionText = "¡Ha ocurrido un error! Por favor intentalo más tarde.";
+        }
+      });
     },
     editHours: function editHours(data) {
+      var _this3 = this;
+
+      this.actionText = "Editando horas, por favor espere...";
+      this.actionTextClass = "";
       console.log('%cParent: edit request received, data:', "color: orange");
       console.log(data);
       console.log(this.selectedCourse, this.selectedCourseName);
@@ -3569,31 +3605,72 @@ __webpack_require__.r(__webpack_exports__);
         if (data.slot_id != arrHours[i].id) {
           if (newString != "") newString += ",";
           newString += arrHours[i].day + arrHours[i].start + "-" + arrHours[i].end;
-        } else {
-          console.log('a');
-          if (newString != "") newString += ",";
-          newString += data.day + data.start + "-" + data.end;
         }
       }
 
-      console.log("%cParent: String has been processed.\nString: " + newString, "color: orange");
+      newString += ",";
+      console.log("%cParent: String has been processed, calling Axios.\nString: " + newString + "\nnewValue: " + data.day + data.start + "-" + data.end + ",", "color: orange");
+      axios.patch('/schedule/edit/courses/edit/' + this.selectedCourse, {
+        'hours': newString,
+        'newValue': data.day + data.start + "-" + data.end + ","
+      }).then(function (response) {
+        console.log("%cAxios: Request succesful.", "color: lightgreen");
+
+        if (response.status = 200) {
+          location.replace('/schedule/edit/index/1');
+        }
+      })["catch"](function (errors) {
+        console.log("%cAxios: Request failed.", "color: #FCCCBB");
+
+        if (errors.response.status === 401) {
+          location.replace('/login');
+        } else if (errors.response.data === "self: error") {
+          _this3.actionTextClass = "text-danger";
+          _this3.actionText = "¡Error! Hay un conflicto de horas en este curso con las horas introducidas.";
+        } else if (errors.response.data === "notself: error") {
+          _this3.actionTextClass = "text-danger";
+          _this3.actionText = "¡Error! Hay un conflicto de horas en otro curso con las horas introducidas.";
+        } else {
+          _this3.actionTextClass = "text-danger";
+          _this3.actionText = "¡Ha ocurrido un error! Por favor intentalo más tarde.";
+        }
+      });
     },
     addHours: function addHours(data) {
+      var _this4 = this;
+
+      this.actionText = "Creando horas, por favor espere...";
+      this.actionTextClass = "";
       console.log('%cParent: add request received, data:', "color: orange");
       console.log(data);
       console.log(this.selectedCourse, this.selectedCourseName);
       console.log("%cParent: Processing Schedule string...", "color: orange");
-      var newString = "";
-      var arrHours = this.selectedCourseHours;
-      if (arrHours === null) newString += data.day + data.start + "-" + data.end;else {
-        for (var i = 0; i < arrHours.length; i++) {
-          if (newString != "") newString += ",";
-          newString += arrHours[i].day + arrHours[i].start + "-" + arrHours[i].end;
-        }
+      var newString = data.day + data.start + "-" + data.end + ",";
+      console.log("%cParent: String has been processed, calling Axios.\nString: " + newString, "color: orange");
+      axios.patch('/schedule/edit/courses/create/' + this.selectedCourse, {
+        'hours': newString
+      }).then(function (response) {
+        console.log("%cAxios: Request succesful.", "color: lightgreen");
 
-        newString += "," + data.day + data.start + "-" + data.end;
-      }
-      console.log("%cParent: String has been processed.\nString: " + newString, "color: orange");
+        if (response.status = 200) {
+          location.replace('/schedule/edit/index/1');
+        }
+      })["catch"](function (errors) {
+        console.log("%cAxios: Request failed.", "color: #FCCCBB");
+
+        if (errors.response.status === 401) {
+          location.replace('/login');
+        } else if (errors.response.data === "self: error") {
+          _this4.actionTextClass = "text-danger";
+          _this4.actionText = "¡Error! Hay un conflicto de horas en este curso con las horas introducidas.";
+        } else if (errors.response.data === "notself: error") {
+          _this4.actionTextClass = "text-danger";
+          _this4.actionText = "¡Error! Hay un conflicto de horas en otro curso con las horas introducidas.";
+        } else {
+          _this4.actionTextClass = "text-danger";
+          _this4.actionText = "¡Ha ocurrido un error! Por favor intentalo más tarde.";
+        }
+      });
     }
   },
   data: function data() {
@@ -3607,7 +3684,9 @@ __webpack_require__.r(__webpack_exports__);
       courseListDisabled: null,
       loadingText: " (Cargando)",
       selectedCourseName: "",
-      selectedCourseHours: []
+      selectedCourseHours: [],
+      actionText: "",
+      actionTextClass: ""
     };
   }
 });
@@ -42647,6 +42726,15 @@ var render = function() {
                           disabled:
                             _vm.computedBtn === "btn-danger" ? "disabled" : null
                         }
+                      }),
+                      _vm._v(" "),
+                      _c("span", {
+                        staticClass: "d-none",
+                        attrs: {
+                          "data-dismiss": "modal",
+                          id: "closeAddModal",
+                          type: "button"
+                        }
                       })
                     ])
                   ]
@@ -42789,7 +42877,30 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(2)
+                    _c("div", { staticClass: "modal-footer" }, [
+                      _c(
+                        "button",
+                        {
+                          staticClass: "btn btn-secondary",
+                          attrs: { type: "button", "data-dismiss": "modal" }
+                        },
+                        [_vm._v(" Cancelar ")]
+                      ),
+                      _vm._v(" "),
+                      _c("input", {
+                        staticClass: "btn btn-danger",
+                        attrs: { type: "submit", value: "Borrar" }
+                      }),
+                      _vm._v(" "),
+                      _c("span", {
+                        staticClass: "d-none",
+                        attrs: {
+                          "data-dismiss": "modal",
+                          id: "closeDeleteModal" + this.slot_id,
+                          type: "button"
+                        }
+                      })
+                    ])
                   ]
                 )
               ]
@@ -42831,26 +42942,6 @@ var staticRenderFns = [
       _c("br"),
       _vm._v(" "),
       _c("br")
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "modal-footer" }, [
-      _c(
-        "button",
-        {
-          staticClass: "btn btn-secondary",
-          attrs: { type: "button", "data-dismiss": "modal" }
-        },
-        [_vm._v(" Cancelar ")]
-      ),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "btn btn-danger",
-        attrs: { type: "submit", value: "Borrar" }
-      })
     ])
   }
 ]
@@ -43222,6 +43313,15 @@ var render = function() {
                           disabled:
                             _vm.computedBtn === "btn-danger" ? "disabled" : null
                         }
+                      }),
+                      _vm._v(" "),
+                      _c("span", {
+                        staticClass: "d-none",
+                        attrs: {
+                          "data-dismiss": "modal",
+                          id: "closeEditModal" + this.slot_id,
+                          type: "button"
+                        }
                       })
                     ])
                   ]
@@ -43414,11 +43514,18 @@ var render = function() {
           _c("h5", [_vm._v(" Selecciona un curso para continuar. ")])
         ])
       : _c("span", [
+          _c("span", { staticClass: "text-primary text-center my-4" }, [
+            _c("b", {
+              class: _vm.actionTextClass,
+              domProps: { textContent: _vm._s(_vm.actionText) }
+            })
+          ]),
+          _vm._v(" "),
           _c(
             "table",
             {
               staticClass:
-                "table border border-info table-striped shadow-lg col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2"
+                "table border border-info table-striped shadow-lg col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-2 my-4"
             },
             [
               _c("thead", { staticClass: "bg-primary text-light h5" }, [

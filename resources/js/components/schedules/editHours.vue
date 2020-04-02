@@ -71,6 +71,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="resetInputs"> Cancelar </button>
                             <input type="submit" class="btn btn-primary" value="Editar"  :class="computedBtn" :disabled="computedBtn === 'btn-danger' ? 'disabled' : null">
+                            <span class="d-none" data-dismiss="modal" :id="'closeEditModal' + this.slot_id" type="button"> </span>
                         </div>
                     </form>
                 </div>
@@ -109,6 +110,7 @@ export default {
                 end: this.endInput,
                 slot_id: this.slot_id
             }
+            document.getElementById('closeEditModal' + this.slot_id).click();
             this.$emit('edit', data);     
         },
 

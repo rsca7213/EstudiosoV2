@@ -53,5 +53,8 @@ Route::get('/calendar/{page}', 'CalendarController@index')->name('viewCalendar')
 
 //Schedule: View
 Route::get('/schedule/view', 'SchedulesController@index')->name('viewSchedule');
-Route::get('/schedule/edit', 'SchedulesController@edit')->name('editSchedule');
+Route::get('/schedule/edit/index/{success}', 'SchedulesController@edit')->name('editSchedules');
 Route::get('schedule/edit/courses', 'SchedulesController@listCourses');
+Route::patch('/schedule/edit/courses/delete/{c_id}', 'SchedulesController@deleteHours');
+Route::patch('/schedule/edit/courses/edit/{c_id}', 'SchedulesController@editHours');
+Route::patch('/schedule/edit/courses/create/{c_id}', 'SchedulesController@createHours');

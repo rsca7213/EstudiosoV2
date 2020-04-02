@@ -25,6 +25,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal"> Cancelar </button>
                             <input type="submit" class="btn btn-danger" value="Borrar">
+                            <span class="d-none" data-dismiss="modal" :id="'closeDeleteModal' + this.slot_id" type="button"> </span>
                         </div>
                     </form>
                 </div>
@@ -46,6 +47,7 @@ export default {
 
     methods: {
         submit() {
+            document.getElementById('closeDeleteModal' + this.slot_id).click();
             this.$emit('delete', this.slot_id);     
         }
     },

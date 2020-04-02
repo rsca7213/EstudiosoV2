@@ -38,9 +38,12 @@
                         Editar Horario
                     </div>
                     <div class="card-body text-center" style="background-color: whitesmoke">
+                        @if($success == true) <span class="text-center h5 text-success"> <b> ¡Acción realizada con exito! </b> </span> @endif
                         <edit-schedule editimg="{{ asset('/img/icons/edit.svg') }}" deleteimg="{{ asset('/img/icons/trash.svg') }}"> </edit-schedule>
                     </div>
-                    <div class="card-footer bg-dark" style="color: #555555"> 
+                    <div class="card-footer bg-dark" style="color: #555555">
+                        <div class="text-right d-none d-lg-block"> <a href="{{ route('viewSchedule') }}" class="btn btn-primary btn-lg"> Ver Horario </a></div>
+                        <div class="text-center d-block d-lg-none"> <a href="{{ route('viewSchedule') }}" class="btn btn-primary"> Ver Horario </a></div>  
                     </div>
                 </div>
             </div>

@@ -58,7 +58,7 @@
                                 @endforeach
                                 </div>
                                 <hr>
-                                <a href="{{ route('editSchedule') }}" class="btn btn-primary btn-lg mb-4"> Editar Horario </a>
+                                <a href="{{ route('editSchedules', ['success' => 0 ]) }}" class="btn btn-primary btn-lg mb-4"> Editar Horario </a>
                             </div>
                             <div class="col-9"> 
                                 <div class="m-4 row d-flex justify-content-center">
@@ -245,7 +245,7 @@
                                    @endforeach
                                <hr>
                                </div>
-                               <a href="{{ route('editSchedule') }}" class="btn btn-primary my-4"> Editar Horario </a> 
+                               <a href="{{ route('editSchedules', ['success' => 0 ]) }}" class="btn btn-primary my-4"> Editar Horario </a> 
                                <hr>
                                <table class="table table-bordered shadow border border-dark px-0 mx-0">
                                     <thead class="bg-info text-light text-center">

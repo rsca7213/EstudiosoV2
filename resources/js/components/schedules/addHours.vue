@@ -71,6 +71,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal" @click="resetInputs"> Cancelar </button>
                             <input type="submit" class="btn btn-primary" value="Agregar"  :class="computedBtn" :disabled="computedBtn === 'btn-danger' ? 'disabled' : null">
+                            <span class="d-none" data-dismiss="modal" id="closeAddModal" type="button"> </span>
                         </div>
                     </form>
                 </div>
@@ -106,6 +107,7 @@ export default {
                 start: this.startInput,
                 end: this.endInput
             }
+            document.getElementById('closeAddModal').click();
             this.$emit('add', data);     
         },
 
