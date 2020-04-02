@@ -76,146 +76,22 @@
                                             </tr>
                                         </thead>
                                         <tbody class="text-center" style="background-color: #E5E5E5"> 
-                                            <tr>
-                                                <th class="bg-info text-light"> 7 a 8 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="bg-info text-light"> 8 a 9 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="bg-info text-light"> 9 a 10 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="bg-info text-light"> 10 a 11 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="bg-info text-light"> 11 a 12 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="bg-info text-light">12 a 1 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="bg-info text-light">1 a 2 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="bg-info text-light"> 2 a 3 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="bg-info text-light"> 3 a 4 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="bg-info text-light"> 4 a 5 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="bg-info text-light"> 5 a 6 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="bg-info text-light"> 6 a 7 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="bg-info text-light"> 7 a 8 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                            <tr>
-                                                <th class="bg-info text-light"> 8 a 9 </th>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
+                                            @foreach ($map as $hours)
+                                                <tr class="text-light text-truncate">
+                                                    <th class="bg-info text-light"> 
+                                                        @if($loop->index+7 <= 12) {{ $loop->index+7 }} @endif
+                                                        @if($loop->index+7 > 12) {{ $loop->index-5 }} @endif
+                                                        a
+                                                        @if($loop->index+8 <= 12) {{ $loop->index+8 }} @endif
+                                                        @if($loop->index+8 > 12) {{ $loop->index-4 }} @endif
+                                                    </th>
+                                                    @foreach ($hours as $day)
+                                                        <td style="background-color: {{ $day['color'] }}; max-width: 110px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden"> 
+                                                            {{ $day['name'] }}
+                                                        </td>
+                                                    @endforeach
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -261,146 +137,23 @@
                                         </tr>
                                     </thead>
                                     <tbody class="text-center" style="background-color: #E5E5E5">
-                                        <tr>
-                                            <th class="bg-info text-light"> 7-8 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-info text-light"> 8-9 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-info text-light"> 9-10 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-info text-light"> 10-11 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-info text-light"> 11-12 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-info text-light"> 12-1 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-info text-light"> 1-2 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-info text-light"> 2-3 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-info text-light"> 3-4 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-info text-light"> 4-5 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-info text-light"> 5-6 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-info text-light"> 6-7 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-info text-light"> 7-8 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
-                                        <tr>
-                                            <th class="bg-info text-light"> 8-9 </th>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                                        @foreach ($map as $hours)
+                                            <tr class="text-light text-truncate">
+                                                <th class="bg-info text-light"> 
+                                                    @if($loop->index+7 <= 12) {{ $loop->index+7 }} @endif
+                                                    @if($loop->index+7 > 12) {{ $loop->index-5 }} @endif
+                                                    a
+                                                    @if($loop->index+8 <= 12) {{ $loop->index+8 }} @endif
+                                                    @if($loop->index+8 > 12) {{ $loop->index-4 }} @endif
+                                                </th>
+                                                @foreach ($hours as $day)
+                                                    <td style="background-color: {{ $day['color'] }}; max-width: 110px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden">
+                                                        @if($day['name'] != null) <span class="d-block d-sm-none"> {{ $day['name'][0] }} </span>  @endif
+                                                        @if($day['name'] != null) <span class="d-none d-sm-block"> {{ $day['name'][0].$day['name'][1].$day['name'][2] }} </span> @endif
+                                                    </td>
+                                                @endforeach
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                </table>
                            </div>

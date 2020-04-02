@@ -15,8 +15,28 @@ class SchedulesController extends Controller
         if(Auth::check()) {
             $user = auth()->user();
             $cs = $user->courses()->where('user_id', $user->id)->get();
+            $map = [];
+            for($i = 7; $i < 21; $i++) {
+                $map[$i] = [];
+                for($j = 0; $j < 7; $j++) {
+                    $map[$i][$j]['name'] = null;
+                    $map[$i][$j]['color'] = null;
+                }
+            }
+            for($i = 7; $i <22; $i++) {
+                for($j = 0; $j < 7; $j++) {
+                    foreach($cs as $c) {
+                        if(Course::checkMap($j, $i, $c->hours)) {
+                            $map[$i][$j]['name'] = $c->name;
+                            $map[$i][$j]['color'] = $c->color;
+                        }
+                    }
+                }
+            }
+            //dd($map);
             return view('schedules.view', [
-                'courses' => $cs
+                'courses' => $cs,
+                'map' => $map
             ]);
         }
         else return redirect('/login');

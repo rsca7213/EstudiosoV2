@@ -81,6 +81,40 @@ class Course extends Model
         return "pass";
     }
 
+    public static function checkMap($day, $hour, $courseHours) {
+        switch($day) {
+            case 0:
+                $day = 'MO';
+            break;
+            case 1:
+                $day = 'TU';
+            break;
+            case 2:
+                $day = 'WE';
+            break;
+            case 3:
+                $day = 'TH';
+            break;
+            case 4:
+                $day = 'FR';
+            break;
+            case 5:
+                $day = 'SA';
+            break;
+            case 6:
+                $day = 'SU';
+            break;
+        }
+        $courseHours = Course::decomposeToArray($courseHours);
+        foreach($courseHours as $hours) {
+            if($day == $hours['day']) {
+                if($hours['start'] == $hour) return true;
+                if($hours['start'] < $hour && $hours['end'] > $hour) return true;
+            }
+        }
+        return false;
+    }
+
     public function user () {
         return $this->belongsTo(User::class);
     }
