@@ -69,7 +69,7 @@
 export default {
     data() {
         return {
-            color: "#000000"
+            color: "#212529"
         }
     },
 
