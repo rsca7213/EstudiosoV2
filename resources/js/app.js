@@ -5,6 +5,9 @@ window.Vue = require('vue');
 Vue.component('delete-course', require('./components/cursos/deleteCourse.vue').default);
 Vue.component('delete-course-lg', require('./components/cursos/deleteCourseLg.vue').default);
 
+//Components of courses.add.blade.php
+Vue.component('color-picker', require('./components/cursos/colorPicker.vue').default);
+
 //Components of evaluations.edit.blade.php
 Vue.component('create-evaluation', require('./components/evaluations/createEvaluation.vue').default);
 Vue.component('delete-evaluation', require('./components/evaluations/deleteEvaluation.vue').default);

@@ -21,10 +21,8 @@
                         <div class="row d-flex justify-content-center">
                             <span class="h5 text-center">
                                 <b>¿Está seguro que desea borrar el curso?</b>
-                                <br />
-                            </span>
-                            <span class="h5 mt-2">
-                                <b>Curso:</b>
+                                <br>
+                                <b class="mt-2">Curso:</b>
                                 <span v-text="this.c_n"></span>
                             </span>
                         </div>

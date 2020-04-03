@@ -57,15 +57,7 @@
                                 @enderror
                             </div>
             
-                            <div class="form-group row">
-                                <label for="color" class="col-form-label text-md-right ml-4 mr-2" style="font-size: 14px; font-weight: bold">  Color del Curso </label>
-                                <input id="color" type="color" class="form-control col-2 col-sm-1 p-0 @error('color') is-invalid @enderror" name="color" required autocomplete="current-color">
-                                @error('color')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            <color-picker> </color-picker>
                         </div>
                     <div class="card-footer bg-dark d-flex justify-content-center">
                         <button type="submit" class="btn btn-success btn-lg">

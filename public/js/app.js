@@ -1899,6 +1899,103 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cursos/colorPicker.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cursos/colorPicker.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      color: "#000000"
+    };
+  },
+  methods: {
+    changeColor: function changeColor(color) {
+      document.getElementById('cancel').click();
+      this.color = color;
+    }
+  },
+  computed: {
+    computedColor: function computedColor() {
+      return "background-color: " + this.color + ";";
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cursos/deleteCourse.vue?vue&type=script&lang=js&":
 /*!******************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cursos/deleteCourse.vue?vue&type=script&lang=js& ***!
@@ -1972,8 +2069,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -40085,6 +40180,746 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cursos/colorPicker.vue?vue&type=template&id=b2aa07b8&":
+/*!*********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cursos/colorPicker.vue?vue&type=template&id=b2aa07b8& ***!
+  \*********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "form-group row" }, [
+    _c(
+      "label",
+      {
+        staticClass: "text-md-right ml-4 mr-2 mt-1",
+        staticStyle: { "font-size": "14px", "font-weight": "bold" },
+        attrs: { for: "color" }
+      },
+      [_vm._v("  Color del Curso ")]
+    ),
+    _vm._v(" "),
+    _c("input", {
+      attrs: { id: "color", type: "hidden", name: "color", required: "" },
+      domProps: { value: _vm.color }
+    }),
+    _vm._v(" "),
+    _c("button", {
+      staticClass: "btn",
+      staticStyle: { width: "60px" },
+      style: _vm.computedColor,
+      attrs: {
+        type: "button",
+        "data-toggle": "modal",
+        "data-target": "#colorModal"
+      }
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        staticClass: "modal fade pr-3",
+        attrs: { tabindex: "-1", role: "dialog", id: "colorModal" }
+      },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "modal-dialog modal-dialog-centered",
+            attrs: { role: "document" }
+          },
+          [
+            _c(
+              "div",
+              {
+                staticClass: "modal-content",
+                staticStyle: { "background-color": "whitesmoke" }
+              },
+              [
+                _vm._m(0),
+                _vm._v(" "),
+                _c("div", { staticClass: "modal-body" }, [
+                  _c(
+                    "div",
+                    {
+                      staticClass: "row mx-4 p-0 d-flex justify-content-center"
+                    },
+                    [
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#1a53ff" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#1a53ff")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#3366ff" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#3366ff")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#4d79ff" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#4d79ff")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#3399ff" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#3399ff")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#4da6ff" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#4da6ff")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#66b3ff" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#66b3ff")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#666633" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#666633")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#77773c" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#77773c")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#888844" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#888844")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#339966" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#339966")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#39ac73" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#39ac73")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#40bf80" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#40bf80")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#bf4040" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#bf4040")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#c65353" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#c65353")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#cc6666" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#cc6666")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#ff3333" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#ff3333")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#ff4d4d" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#ff4d4d")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#ff6666" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#ff6666")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#d24dff" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#d24dff")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#d966ff" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#d966ff")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#df80ff" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#df80ff")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#ff4da6" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#ff4da6")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#ff66b3" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#ff66b3")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#ff80bf" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#ff80bf")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#ff8533" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#ff8533")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#ff944d" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#ff944d")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#ffa366" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#ffa366")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#ffb31a" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#ffb31a")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#ffbb33" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#ffbb33")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#ffc34d" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#ffc34d")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#404040" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#404040")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#4d4d4d" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#4d4d4d")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#595959" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#595959")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#bf8040" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#bf8040")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#c68c53" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#c68c53")
+                              }
+                            }
+                          })
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        { staticClass: "col-2 mx-2 mx-sm-0 col-sm-2 my-2" },
+                        [
+                          _c("button", {
+                            staticClass: "btn p-3",
+                            staticStyle: { "background-color": "#cc9966" },
+                            attrs: { type: "button" },
+                            on: {
+                              click: function($event) {
+                                return _vm.changeColor("#cc9966")
+                              }
+                            }
+                          })
+                        ]
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _vm._m(1)
+              ]
+            )
+          ]
+        )
+      ]
+    )
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-header" }, [
+      _c("h4", { staticClass: "modal-title" }, [
+        _c("b", [_vm._v("Seleccionar Color")])
+      ]),
+      _vm._v(" "),
+      _c(
+        "button",
+        {
+          staticClass: "close",
+          attrs: { type: "button", "data-dismiss": "modal" }
+        },
+        [_c("span", [_vm._v("×")])]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "modal-footer" }, [
+      _c("div", { staticClass: "row d-flex text-right" }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-secondary mx-2",
+            attrs: { "data-dismiss": "modal", id: "cancel" }
+          },
+          [_vm._v(" Cancelar ")]
+        )
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cursos/deleteCourse.vue?vue&type=template&id=13bb5f3a&":
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/cursos/deleteCourse.vue?vue&type=template&id=13bb5f3a& ***!
@@ -40288,10 +41123,14 @@ var render = function() {
                   "div",
                   { staticClass: "row d-flex justify-content-center" },
                   [
-                    _vm._m(1),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "h5 mt-2" }, [
-                      _c("b", [_vm._v("Curso:")]),
+                    _c("span", { staticClass: "h5 text-center" }, [
+                      _c("b", [
+                        _vm._v("¿Está seguro que desea borrar el curso?")
+                      ]),
+                      _vm._v(" "),
+                      _c("br"),
+                      _vm._v(" "),
+                      _c("b", { staticClass: "mt-2" }, [_vm._v("Curso:")]),
                       _vm._v(" "),
                       _c("span", {
                         domProps: { textContent: _vm._s(this.c_n) }
@@ -40369,16 +41208,6 @@ var staticRenderFns = [
         },
         [_c("span", [_vm._v("×")])]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("span", { staticClass: "h5 text-center" }, [
-      _c("b", [_vm._v("¿Está seguro que desea borrar el curso?")]),
-      _vm._v(" "),
-      _c("br")
     ])
   }
 ]
@@ -55828,7 +56657,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); //Components of cursos.view.blade.php
 
 Vue.component('delete-course', __webpack_require__(/*! ./components/cursos/deleteCourse.vue */ "./resources/js/components/cursos/deleteCourse.vue")["default"]);
-Vue.component('delete-course-lg', __webpack_require__(/*! ./components/cursos/deleteCourseLg.vue */ "./resources/js/components/cursos/deleteCourseLg.vue")["default"]); //Components of evaluations.edit.blade.php
+Vue.component('delete-course-lg', __webpack_require__(/*! ./components/cursos/deleteCourseLg.vue */ "./resources/js/components/cursos/deleteCourseLg.vue")["default"]); //Components of courses.add.blade.php
+
+Vue.component('color-picker', __webpack_require__(/*! ./components/cursos/colorPicker.vue */ "./resources/js/components/cursos/colorPicker.vue")["default"]); //Components of evaluations.edit.blade.php
 
 Vue.component('create-evaluation', __webpack_require__(/*! ./components/evaluations/createEvaluation.vue */ "./resources/js/components/evaluations/createEvaluation.vue")["default"]);
 Vue.component('delete-evaluation', __webpack_require__(/*! ./components/evaluations/deleteEvaluation.vue */ "./resources/js/components/evaluations/deleteEvaluation.vue")["default"]);
@@ -55895,6 +56726,75 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/components/cursos/colorPicker.vue":
+/*!********************************************************!*\
+  !*** ./resources/js/components/cursos/colorPicker.vue ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _colorPicker_vue_vue_type_template_id_b2aa07b8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./colorPicker.vue?vue&type=template&id=b2aa07b8& */ "./resources/js/components/cursos/colorPicker.vue?vue&type=template&id=b2aa07b8&");
+/* harmony import */ var _colorPicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./colorPicker.vue?vue&type=script&lang=js& */ "./resources/js/components/cursos/colorPicker.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _colorPicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _colorPicker_vue_vue_type_template_id_b2aa07b8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _colorPicker_vue_vue_type_template_id_b2aa07b8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/cursos/colorPicker.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/cursos/colorPicker.vue?vue&type=script&lang=js&":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/components/cursos/colorPicker.vue?vue&type=script&lang=js& ***!
+  \*********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_colorPicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./colorPicker.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cursos/colorPicker.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_colorPicker_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/cursos/colorPicker.vue?vue&type=template&id=b2aa07b8&":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/components/cursos/colorPicker.vue?vue&type=template&id=b2aa07b8& ***!
+  \***************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_colorPicker_vue_vue_type_template_id_b2aa07b8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./colorPicker.vue?vue&type=template&id=b2aa07b8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/cursos/colorPicker.vue?vue&type=template&id=b2aa07b8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_colorPicker_vue_vue_type_template_id_b2aa07b8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_colorPicker_vue_vue_type_template_id_b2aa07b8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
 
 /***/ }),
 
