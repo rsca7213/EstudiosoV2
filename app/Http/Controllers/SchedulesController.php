@@ -100,9 +100,16 @@ class SchedulesController extends Controller
                 if($checkSelf != "pass") return response('self: error', 400);
                 else if($conflictCheck != "pass") return response ('notself: error', 400);
                 else {
-                    $course->update([
-                        'hours' => $request->input('hours').$request->input('newValue')
-                    ]);
+                    if($request->input('hours') == []) {
+                        $course->update([
+                            'hours' => $request->input('newValue')
+                        ]);
+                    }
+                    else {
+                        $course->update([
+                            'hours' => $request->input('hours').$request->input('newValue')
+                        ]);
+                    }
                     return response('Success', 200);
                 }
             }

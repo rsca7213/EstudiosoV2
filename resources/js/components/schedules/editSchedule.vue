@@ -191,15 +191,17 @@ export default {
             console.log('%cParent: edit request received, data:', "color: orange");
             console.log(data);
             console.log(this.selectedCourse, this.selectedCourseName);
+            let exists = false;
             let newString = [];
             let arrHours = this.selectedCourseHours;
             for (let i=0; i<arrHours.length; i++) {
                 if(data.slot_id != arrHours[i].id) {
                     if(newString != "") newString += ",";
                     newString += arrHours[i].day + arrHours[i].start + "-" + arrHours[i].end;
+                    exists = true;
                 }
             }
-            newString += ",";
+            if(exists) newString += ",";
             console.log("%cParent: String has been processed, calling Axios.\nString: " + newString + "\nnewValue: " + data.day + data.start + "-" + data.end + ",", "color: orange");
             axios.patch('/schedule/edit/courses/edit/' + this.selectedCourse, {
                 'hours': newString,

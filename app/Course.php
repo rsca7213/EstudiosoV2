@@ -11,6 +11,7 @@ class Course extends Model
 
     public static function decomposeToArray ($string) {
         $arr = [];
+        if($string == null) return $arr;
         for ($i = 0; $i < strlen($string); $i++) {
             $innerArr = [];
             $innerArr['day'] = $string[$i].$string[$i+1];
@@ -40,7 +41,6 @@ class Course extends Model
     public static function checkCreateSelf ($new, $current) {
         $new = Course::decomposeToArray($new);
         $current = Course::decomposeToArray($current);
-        //return [$new, $current];
         foreach($current as $slot) {
             if($slot['day'] == $new[0]['day']) {
                 if($new[0]['start'] > $slot['start'] && $new[0]['start'] < $slot['end']) {

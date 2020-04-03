@@ -3693,6 +3693,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log('%cParent: edit request received, data:', "color: orange");
       console.log(data);
       console.log(this.selectedCourse, this.selectedCourseName);
+      var exists = false;
       var newString = [];
       var arrHours = this.selectedCourseHours;
 
@@ -3700,10 +3701,11 @@ __webpack_require__.r(__webpack_exports__);
         if (data.slot_id != arrHours[i].id) {
           if (newString != "") newString += ",";
           newString += arrHours[i].day + arrHours[i].start + "-" + arrHours[i].end;
+          exists = true;
         }
       }
 
-      newString += ",";
+      if (exists) newString += ",";
       console.log("%cParent: String has been processed, calling Axios.\nString: " + newString + "\nnewValue: " + data.day + data.start + "-" + data.end + ",", "color: orange");
       axios.patch('/schedule/edit/courses/edit/' + this.selectedCourse, {
         'hours': newString,
