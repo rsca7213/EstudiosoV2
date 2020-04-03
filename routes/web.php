@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\Console\Input\Input;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,7 +16,8 @@ use Symfony\Component\Console\Input\Input;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if(Auth::check()) return redirect('/home');
+    else return view('welcome');
 });
 
 Auth::routes();

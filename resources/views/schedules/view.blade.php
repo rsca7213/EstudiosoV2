@@ -62,7 +62,7 @@
                             </div>
                             <div class="col-9"> 
                                 <div class="m-4 row d-flex justify-content-center">
-                                    <table class="table shadow-lg table-bordered">
+                                    <table class="table shadow-lg table-striped border border-info">
                                         <thead class="bg-info text-center text-light">
                                             <tr>
                                                 <th scope="col"> Hora </th>
@@ -98,7 +98,9 @@
                             </div>
                         </div>
                    </div>
-                   <div class="card-footer bg-dark"></div>
+                   <div class="card-footer bg-dark text-right">
+                       <a href="{{ route('home') }}" class="btn btn-secondary btn-lg"> Regresar al Menú Principal </a>
+                   </div>
                </div>
            </div>
            <!-- End Desktop View -->
@@ -123,7 +125,7 @@
                                </div>
                                <a href="{{ route('editSchedules', ['success' => 0 ]) }}" class="btn btn-primary my-4"> Editar Horario </a> 
                                <hr>
-                               <table class="table table-bordered shadow border border-dark px-0 mx-0">
+                               <table class="table table-striped shadow border border-info px-0 mx-0">
                                     <thead class="bg-info text-light text-center">
                                         <tr>
                                             <th scope="col"> Hora </th>
