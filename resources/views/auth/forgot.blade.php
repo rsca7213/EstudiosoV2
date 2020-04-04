@@ -1,7 +1,7 @@
 @extends('layouts.accessLayout')
 
 @section('head')
-    <title> Estudioso | Login </title>
+    <title> Estudioso | Olvidar Contraseña </title>
     <link rel="stylesheet" href="{{ asset('css/access/login.css') }}">
 @endsection
 
@@ -33,10 +33,10 @@
     <div class="col-lg-4 col-md-6 col-sm-10 col-12">
         <div class="card shadow-lg">
             <div class="card-body loginForm bg-light cardBodyImg">
-                <div class="card-title text-center" style="font-size: 28px; font-weight: bold"> Iniciar Sesión </div>
-                <form method="POST" action="{{ route('login') }}">
+                <div class="card-title text-center" style="font-size: 28px; font-weight: bold"> Olvidar Contraseña </div>
+                <form method="GET" action="{{ route('resetPassword') }}">
                     @csrf
-    
+                    <h5 class="text-center"> <b> Por favor introduzca su correo electrónico. <br> Le enviaremos un correo con una contraseña nueva. </b> </h5>
                     <div class="form-group row mx-2">
                         <label for="email" class="col-form-label text-md-right" style="font-size: 14px; font-weight: bold">{{ __('Correo Electrónico') }}</label>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -46,35 +46,15 @@
                             </span>
                         @enderror
                     </div>
-    
-                    <div class="form-group row mx-2">
-                        <label for="password" class="col-form-label text-md-right" style="font-size: 14px; font-weight: bold">{{ __('Contraseña') }}</label>
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                        @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>
-    
-                    <div class="form-group row ml-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <label class="form-check-label" for="remember" style="font-size: 14px; font-weight: bold">
-                                {{ __('Recuerdame') }}
-                            </label>
-                        </div>
-                    </div>
-    
                     <div class="form-group row d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary btn-lg">
-                                {{ __('Iniciar Sesión') }}
-                            </button>
+                        <button type="submit" class="btn btn-primary btn-lg"> Enviar Correo </button>
                     </div>
-                    <div class="form group row d-flex justify-content-center">
-                        <a class="btn btn-link" href="{{ route('forgotPassword') }}">
-                            <b> {{ __('¿Olvidaste tu Contraseña?') }} </b>
-                        </a>
+                    <div class="form-group row d-flex justify-content-center">
+                        @error('send')
+                        <span class="text-success h5 text-center"> 
+                            <strong> {{ $message }} <a class="btn btn-success" href="{{ route('login') }}"> Ir a Login </a> </strong>
+                        </span>
+                        @enderror
                     </div>
                 </form>
             </div>

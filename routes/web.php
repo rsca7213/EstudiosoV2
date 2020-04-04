@@ -20,6 +20,9 @@ Route::get('/', function () {
     else return view('welcome');
 });
 
+Route::get('/forgot', 'ForgotController@index')->name('forgotPassword');
+Route::get('/forgot/send', 'ForgotController@reset')->name('resetPassword');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
